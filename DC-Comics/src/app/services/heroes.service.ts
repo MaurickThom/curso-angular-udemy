@@ -23,9 +23,9 @@ export class HeroesService {
     }); 
     return of(hero)
   }
-  getHeroByName(name:string):Observable<IHeroe | any>{
-    const hero = this.HEROES.find(hero=>hero.nombre===name)
-    if(!hero)  return throwError({
+  getHeroesByName(name:string):Observable<IHeroe[] | any>{
+    const hero:IHeroe[] = this.HEROES.filter(hero=>hero.nombre.toLowerCase().includes(name.toLowerCase()))
+    if(!hero.length)  return throwError({
       msg:`El usuario con el nombre ${name} no existe`
     }); 
     return of(hero)

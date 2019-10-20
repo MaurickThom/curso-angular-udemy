@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { HeroesComponent } from './components/heroes/heroes.component';
 import { AboutComponent } from './components/about/about.component';
 import { CardComponent } from './components/card/card.component';
+import { FoundComponent } from './components/found/found.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,10 @@ const routes: Routes = [
     path:'',
     redirectTo:'/home',
     pathMatch:'full'
+  },
+  {
+    path:'search/:name',
+    component:FoundComponent
   }
 ];
 

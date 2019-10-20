@@ -15,10 +15,9 @@ export class HeroesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.heroesApi.getHeroes().subscribe(observer=>{
+    this.heroesApi.getHeroes().subscribe(observer=>
       this.arrHeroes = observer
-    })
-    // console.log(this.arrHeroes)
+    )
   }
   
 }
