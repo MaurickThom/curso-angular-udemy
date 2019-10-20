@@ -1,13 +1,13 @@
 <ng-container *ngIf="!dataError; then success; else errorApi"></ng-container>
 <ng-template #success>
     <div class="card-columns ">
-        <div class="card" *ngFor="let hero of arrHeroes; let i = index" [attr.data-index]="i">
+        <div class="card animated fadeIn fast" *ngFor="let hero of arrHeroes; let i = index" [attr.data-index]="i">
           <app-hero [hero]="hero" [i]="i"></app-hero>
         </div>
       </div>
 </ng-template>
 <ng-template #errorApi>
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <div class="alert alert-warning alert-dismissible fade show animated fadeIn fast" role="alert">
         <strong>Error : </strong> {{dataError.msg}}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>

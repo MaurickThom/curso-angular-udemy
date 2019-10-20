@@ -2,12 +2,12 @@
 <ng-template #success>
     <div class="row">
         <div class="col-md-5">
-            <div class="card">
+            <div class="card animated fadeIn fast">
                 <img [src]="dataSuccess.img" class="img-fluid">
             </div>
         </div>
         <div class="col-md-7">
-            <div class="card  w-100">
+            <div class="card  w-100 animated fadeIn fast">
                 <div class="card-body">
                     <h5 class="card-title">{{dataSuccess.nombre | uppercase}}</h5>
                     <p class="card-text">
@@ -25,7 +25,7 @@
     </div>
 </ng-template>
 <ng-template #errorApi>
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <div class="alert alert-warning alert-dismissible fade show animated fadeIn fast"  role="alert">
         <strong>Error : </strong> {{dataError.msg}}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>

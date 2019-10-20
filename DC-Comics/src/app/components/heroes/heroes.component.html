@@ -1,6 +1,6 @@
 <h1>Heróes de <small>Marvel y DC</small></h1>
 <div class="card-columns ">
-  <div class="card" *ngFor="let hero of arrHeroes; let i = index" [attr.data-index]="i">
+  <div class="card animated fadeIn fast" *ngFor="let hero of arrHeroes; let i = index" [attr.data-index]="i">
     <app-hero [hero]="hero" [i]="i"></app-hero>
   </div>
 </div>
