@@ -1,5 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { IHeroe } from 'src/app/models/IHero';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-hero',
@@ -8,10 +9,12 @@ import { IHeroe } from 'src/app/models/IHero';
 })
 export class HeroComponent implements OnInit {
   @Input('hero') hero:IHeroe
-  @Input('index') index:string | number
-  constructor() { }
+  @Input('i') i:string | number
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
-
+  selectedCard(id:any){
+    this.router.navigate(['/hero',id])
+  }
 }

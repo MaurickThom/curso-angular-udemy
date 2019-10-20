@@ -23,4 +23,11 @@ export class HeroesService {
     }); 
     return of(hero)
   }
+  getHeroByName(name:string):Observable<IHeroe | any>{
+    const hero = this.HEROES.find(hero=>hero.nombre===name)
+    if(!hero)  return throwError({
+      msg:`El usuario con el nombre ${name} no existe`
+    }); 
+    return of(hero)
+  }
 }

@@ -11,8 +11,7 @@ import { IHeroe } from 'src/app/models/IHero';
 export class HeroesComponent implements OnInit {
   private arrHeroes : IHeroe[] = []
   constructor(
-    private heroesApi:HeroesService,
-    private router:Router
+    private heroesApi:HeroesService
   ) { }
 
   ngOnInit() {
@@ -21,7 +20,5 @@ export class HeroesComponent implements OnInit {
     })
     // console.log(this.arrHeroes)
   }
-  selectedCard(id:any){
-    this.router.navigate(['/hero',id])
-  }
+  
 }
