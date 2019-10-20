@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HeroesService } from 'src/app/services/heroes.service';
 import { IHeroe } from 'src/app/models/IHero';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-found',
@@ -10,6 +11,7 @@ import { IHeroe } from 'src/app/models/IHero';
 })
 export class FoundComponent implements OnInit {
   private arrHeroes : IHeroe[] = []
+  private arrHeroes$ : Observable<IHeroe[]>
   private dataError:{msg:string}
   constructor(
     private activatedRoute:ActivatedRoute,
@@ -26,5 +28,4 @@ export class FoundComponent implements OnInit {
       })
     })
   }
-
 }
