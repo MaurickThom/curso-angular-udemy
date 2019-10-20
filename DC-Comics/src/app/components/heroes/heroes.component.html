@@ -1,20 +1,6 @@
 <h1>Heróes de <small>Marvel y DC</small></h1>
 <div class="card-columns ">
   <div class="card" *ngFor="let hero of arrHeroes; let i = index" [attr.data-index]="i">
-    <img [src]="hero.img" class="card-img-top" alt="card">
-    <div class="card-body">
-      <h5 class="card-title">{{hero.nombre}}</h5>
-      <p class="card-text">
-        {{ hero.bio}}
-      </p>
-      <p class="card-text"><small class="text-muted">
-        Last updated 3 mins ago
-      </small></p>
-      <button class="btn btn-outline-primary btn-block"
-        (click)="selectedCard(i)"
-      >
-        Ver más ...
-      </button>
-    </div>
+    <app-hero [hero]="hero" [index]="index"></app-hero>
   </div>
 </div>

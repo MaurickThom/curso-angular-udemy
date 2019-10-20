@@ -19,9 +19,9 @@ export class HeroesComponent implements OnInit {
     this.heroesApi.getHeroes().subscribe(observer=>{
       this.arrHeroes = observer
     })
-    console.log(this.arrHeroes)
+    // console.log(this.arrHeroes)
   }
-  selectedCard(index:number){
-    this.router.navigate(['/hero',index])
+  selectedCard(id:any){
+    this.router.navigate(['/hero',id])
   }
 }
