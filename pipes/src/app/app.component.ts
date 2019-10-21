@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'pipes';
+  name = 'thOm roMan aGuIlaR'
+  myPromise = new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+      resolve('hola mundo !!')
+    },5000)
+  })
+
 }
