@@ -21,10 +21,22 @@
         <td>{{name | capitalizado:1:2:3}}</td>
       </tr>
       <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
+        <th scope="row">password {{ password_ }}</th>
+        <td>
+          Active : {{ active }}
+          <button
+          (click)="active=!active"
+          >
+            {{ !active ? 'hide': 'show' }}
+          </button>
+        </td>
+        <td>{{ password_ | password:active }}</td>
       </tr>
     </tbody>
   </table>
 </div>
+
+<hr>
+<h4>Youtube <small>Video</small></h4>
+<hr>
+<iframe width="560" height="315" [src]="codeVideo | domseguros :'https://www.youtube.com/embed/'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

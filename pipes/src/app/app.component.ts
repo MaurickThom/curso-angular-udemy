@@ -13,5 +13,7 @@ export class AppComponent {
       resolve('hola mundo !!')
     },5000)
   })
-
+  codeVideo = '0V2dPJoXlHw'
+  active = false
+  password_ = 'thommaurick'
 }
