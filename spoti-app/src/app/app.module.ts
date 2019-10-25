@@ -9,6 +9,7 @@ import { CardComponent } from './components/card/card.component';
 import { ArtistComponent } from './components/artist/artist.component';
 import { SearchComponent } from './components/search/search.component';
 import { HomeComponent } from './components/home/home.component';
+import { SpotifyService } from './services/spotify.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { HomeComponent } from './components/home/home.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    SpotifyService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
