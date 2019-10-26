@@ -15,7 +15,7 @@ export class SpotifyService {
 
   getNewsReleases():Observable<any>{
     const headers = new HttpHeaders({
-      Authorization:'Bearer BQDsTGIEEsngJmT2qiWX07qdTyuUzKsKMWGs9ySRLbxCrlRd92cRGRqmnZ5TG99R0ksF7Bmbit1WWLLO300'
+      Authorization:'Bearer BQBhjvofwfU4JstV11T1A2of8r6D-tLBVItZ3FNXb1N0reLzQE5GdE8UV163Ox-yLdPUxHAV0xB2Xx_lz48'
     })
     return this.http.get('https://api.spotify.com/v1/browse/new-releases',{headers})
   }
