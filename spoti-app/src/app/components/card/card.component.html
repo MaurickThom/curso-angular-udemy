@@ -1,11 +1,14 @@
-<div class="card">
-    <img [src]="song.images[0].url" class="card-img-top">
+<div class="card animated fadeIn" [ngStyle]="{'cursor': 'pointer'}" >
+    <img [src]="song.images[0] | noimage" class="card-img-top" [routerLink]="['/artist',song.artists[0].id]">
     <div class="card-body">
       <h5 class="card-title">{{ song.name }}</h5>
-      <span class="badge badge-primary" 
-        *ngFor="let artist of song.artists"
-      >
-      {{ artist.name }}
-      </span>
+      <div class="" *ngIf="song.artists">
+        <span class="badge badge-primary" 
+          *ngFor="let artist of song.artists"
+        >
+        {{ artist.name }}
+        </span>
+
+      </div>
     </div>
   </div>

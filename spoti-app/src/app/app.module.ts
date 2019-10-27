@@ -10,6 +10,9 @@ import { ArtistComponent } from './components/artist/artist.component';
 import { SearchComponent } from './components/search/search.component';
 import { HomeComponent } from './components/home/home.component';
 import { SpotifyService } from './services/spotify.service';
+import { NoimagePipe } from './pipes/noimage.pipe';
+import { LoagingComponent } from './components/loaging/loaging.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,12 +22,16 @@ import { SpotifyService } from './services/spotify.service';
     CardComponent,
     ArtistComponent,
     SearchComponent,
-    HomeComponent
+    HomeComponent,
+    NoimagePipe,
+    LoagingComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     SpotifyService
