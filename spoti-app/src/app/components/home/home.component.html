@@ -1,5 +1,5 @@
 <app-loaging *ngIf="loading" ></app-loaging>
-<div class="card-columns">
+<div class="card-columns" *ngIf="!loading">
   <app-card
     *ngFor="let song of songs"
     [song] = "song"

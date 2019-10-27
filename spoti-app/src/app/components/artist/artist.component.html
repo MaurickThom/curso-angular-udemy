@@ -1,1 +1,18 @@
+<app-loaging *ngIf="isLoading"></app-loaging>
 
+<div class="row" *ngIf="!isLoading">
+    <div class="col-2">
+        <img [src]="artist.images[0] | noimage" alt="" class="img-thumbnail animated fadeIn" [ngStyle]="{'border-radius': '50%'}">
+    </div>
+    <div class="col">
+        <h3>
+            {{ artist.name }}
+        </h3>
+        <p>
+            <a [href]="artist.external_urls.spotify" target="_blank">Ir a la página del artista</a>
+        </p>
+    </div>
+    <div class="col-4">
+
+    </div>
+</div>

@@ -14,7 +14,7 @@ export class SpotifyService {
 
   getNewsReleases():Observable<any>{
     const headers = new HttpHeaders({
-      Authorization:'Bearer BQA_jsSE2o4u42u7My6mvh_-0_d88qy_g93fcmXqF1Jhmb5ZOl8M5zGdi2kKu8sQDuBumfu9CBlFD6mxjwA'
+      Authorization:'Bearer BQDNkQA5GzvIx6hlZZWc0JqSpr8hwsafMansxLc-AFbmbCAvJFBt_d2SfWMaMezZihsni32INKtyHCzW1Es'
     })
     return this.http.get('https://api.spotify.com/v1/browse/new-releases',{headers})
     .pipe(
@@ -24,11 +24,17 @@ export class SpotifyService {
 
   getArtists(artist:string):Observable<any>{
     const headers = new HttpHeaders({
-      Authorization:'Bearer BQA_jsSE2o4u42u7My6mvh_-0_d88qy_g93fcmXqF1Jhmb5ZOl8M5zGdi2kKu8sQDuBumfu9CBlFD6mxjwA'
+      Authorization:'Bearer BQDNkQA5GzvIx6hlZZWc0JqSpr8hwsafMansxLc-AFbmbCAvJFBt_d2SfWMaMezZihsni32INKtyHCzW1Es'
     })
     return this.http.get(`https://api.spotify.com/v1/search?q=${artist}&type=artist&limit=10`,{headers})
       .pipe(
         map((data:any)=>data.artists.items)
       )
+  }
+  getArtist(id:string):Observable<any>{
+    const headers = new HttpHeaders({
+      Authorization:'Bearer BQDNkQA5GzvIx6hlZZWc0JqSpr8hwsafMansxLc-AFbmbCAvJFBt_d2SfWMaMezZihsni32INKtyHCzW1Es'
+    })
+    return this.http.get(`https://api.spotify.com/v1/artists/${id}`,{headers})
   }
 }

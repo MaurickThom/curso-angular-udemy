@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { SpotifyService } from 'src/app/services/spotify.service';
 
 @Component({
   selector: 'app-artist',
@@ -7,15 +8,21 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./artist.component.scss']
 })
 export class ArtistComponent implements OnInit {
-
+  private isLoading:boolean
+  private artist:any
   constructor(
-    private activatedRoute:ActivatedRoute
+    private activatedRoute:ActivatedRoute,
+    private apiSpotify:SpotifyService
   ) { }
 
   ngOnInit() {
+    this.isLoading = true
     this.activatedRoute.params.subscribe(observer=>{
       const {id} = observer
-      console.log(id)
+      this.apiSpotify.getArtist(id).subscribe(data=>{
+        this.artist = data
+        this.isLoading = false
+      })
     })
   }
 

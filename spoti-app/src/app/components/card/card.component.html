@@ -1,5 +1,5 @@
 <div class="card animated fadeIn" [ngStyle]="{'cursor': 'pointer'}" >
-    <img [src]="song.images[0] | noimage" class="card-img-top" [routerLink]="['/artist',song.artists[0].id]">
+    <img [src]="song.images[0] | noimage" class="card-img-top" [routerLink]="['/artist',!song.artists ? song .id :song.artists[0].id]">
     <div class="card-body">
       <h5 class="card-title">{{ song.name }}</h5>
       <div class="" *ngIf="song.artists">
