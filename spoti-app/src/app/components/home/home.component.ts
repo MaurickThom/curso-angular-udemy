@@ -9,6 +9,8 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 export class HomeComponent implements OnInit {
   private songs:any[] = []
   private loading:boolean
+  private error:boolean = false
+  private msgError:string
   constructor(
     private spotify:SpotifyService
     ) {
@@ -16,6 +18,11 @@ export class HomeComponent implements OnInit {
       this.spotify.getNewsReleases().subscribe(data=>{
           this.songs = data
           this.loading = false 
+        },
+        err=>{
+          this.error= true
+          this.loading = false
+          this.msgError = err.message
         }
       )
     }

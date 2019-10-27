@@ -16,6 +16,8 @@ export class SearchComponent implements OnInit {
   private artists:any[] = []
   private formCtrlSub: Subscription;
   private loading:boolean
+  private error:boolean = false
+  private msgError:string
   constructor(
     private apiSpotify:SpotifyService
   ) { }
@@ -28,6 +30,10 @@ export class SearchComponent implements OnInit {
         this.apiSpotify.getArtists(data).subscribe((response:any)=>{
           this.artists = response
           this.loading = false
+        },err=>{
+          this.error= true
+          this.loading = false
+          this.msgError = err.message
         })
       })
   }

@@ -6,8 +6,16 @@
     </div>
 </div>
 
+
 <app-loaging *ngIf="loading" ></app-loaging>
-<div class="card-columns mt-5" *ngIf="!loading">
+
+
+<div class="alert alert-danger animated fadeIn m-5" *ngIf="error">
+        <h3>Error</h3>
+        <p>{{msgError}}</p>
+      </div>
+
+<div class="card-columns mt-5" *ngIf="!loading && !error">
     <app-card
     *ngFor="let artist of artists"
     [song] = "artist"

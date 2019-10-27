@@ -1,5 +1,10 @@
-<app-loaging *ngIf="loading" ></app-loaging>
-<div class="card-columns" *ngIf="!loading">
+<app-loaging *ngIf="loading && !error" ></app-loaging>
+<div class="alert alert-danger animated fadeIn m-5" *ngIf="error">
+  <h3>Error</h3>
+  <p>{{msgError}}</p>
+</div>
+
+<div class="card-columns" *ngIf="!loading && !error">
   <app-card
     *ngFor="let song of songs"
     [song] = "song"
