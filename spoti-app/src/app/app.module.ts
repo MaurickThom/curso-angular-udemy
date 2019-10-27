@@ -13,6 +13,7 @@ import { SpotifyService } from './services/spotify.service';
 import { NoimagePipe } from './pipes/noimage.pipe';
 import { LoagingComponent } from './components/loaging/loaging.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { DomseguroPipe } from './pipes/domseguro.pipe';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     HomeComponent,
     NoimagePipe,
     LoagingComponent,
+    DomseguroPipe,
   ],
   imports: [
     BrowserModule,

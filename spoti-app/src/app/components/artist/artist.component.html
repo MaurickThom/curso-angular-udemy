@@ -2,7 +2,8 @@
 
 <div class="row" *ngIf="!isLoading">
     <div class="col-2">
-        <img [src]="artist.images[0] | noimage" alt="" class="img-thumbnail animated fadeIn" [ngStyle]="{'border-radius': '50%'}">
+        <img [src]="artist.images[0] | noimage" alt="" class="img-thumbnail animated fadeIn"
+            [ngStyle]="{'border-radius': '50%'}">
     </div>
     <div class="col">
         <h3>
@@ -15,4 +16,33 @@
     <div class="col-4">
 
     </div>
+
+
+</div>
+
+
+<div class="table-responsive-lg" *ngIf="!isLoading">
+    <table class="table m-5" [ngStyle]="{'color': 'white'}">
+        <thead>
+            <tr>
+                <th scope="col">Foto</th>
+                <th scope="col">Album</th>
+                <th scope="col">Cancion</th>
+                <th scope="col">Vista previa</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of songs">
+                <td>
+                    <img [src]="item.album.images[0] | noimage" class="img-thumb"> 
+                </td>
+                <td>{{item.album.name}}</td>
+                <td>{{item.name}}</td>
+                <td>
+                    <!-- <audio [src]="item.preview_url" controls> </audio> -->
+                    <iframe [src]="item.uri | domseguro:'https://open.spotify.com/embed?uri=' " wwidth="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

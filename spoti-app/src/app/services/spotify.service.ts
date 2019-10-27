@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, pipe } from 'rxjs';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import {map} from 'rxjs/operators'
 
@@ -14,7 +14,7 @@ export class SpotifyService {
 
   getNewsReleases():Observable<any>{
     const headers = new HttpHeaders({
-      Authorization:'Bearer BQDNkQA5GzvIx6hlZZWc0JqSpr8hwsafMansxLc-AFbmbCAvJFBt_d2SfWMaMezZihsni32INKtyHCzW1Es'
+      Authorization:'Bearer BQDY1ac2gUcNSCkyVk7N2w7gixlNTFvLwTYt47AC7WRjYCRxMcigD7b5WV-QqN91JTxurmExft8qo4c6fBs'
     })
     return this.http.get('https://api.spotify.com/v1/browse/new-releases',{headers})
     .pipe(
@@ -24,7 +24,7 @@ export class SpotifyService {
 
   getArtists(artist:string):Observable<any>{
     const headers = new HttpHeaders({
-      Authorization:'Bearer BQDNkQA5GzvIx6hlZZWc0JqSpr8hwsafMansxLc-AFbmbCAvJFBt_d2SfWMaMezZihsni32INKtyHCzW1Es'
+      Authorization:'Bearer BQDY1ac2gUcNSCkyVk7N2w7gixlNTFvLwTYt47AC7WRjYCRxMcigD7b5WV-QqN91JTxurmExft8qo4c6fBs'
     })
     return this.http.get(`https://api.spotify.com/v1/search?q=${artist}&type=artist&limit=10`,{headers})
       .pipe(
@@ -33,8 +33,17 @@ export class SpotifyService {
   }
   getArtist(id:string):Observable<any>{
     const headers = new HttpHeaders({
-      Authorization:'Bearer BQDNkQA5GzvIx6hlZZWc0JqSpr8hwsafMansxLc-AFbmbCAvJFBt_d2SfWMaMezZihsni32INKtyHCzW1Es'
+      Authorization:'Bearer BQDY1ac2gUcNSCkyVk7N2w7gixlNTFvLwTYt47AC7WRjYCRxMcigD7b5WV-QqN91JTxurmExft8qo4c6fBs'
     })
     return this.http.get(`https://api.spotify.com/v1/artists/${id}`,{headers})
+  }
+  getTranks(id:string):Observable<any>{
+    const headers = new HttpHeaders({
+      Authorization:'Bearer BQDY1ac2gUcNSCkyVk7N2w7gixlNTFvLwTYt47AC7WRjYCRxMcigD7b5WV-QqN91JTxurmExft8qo4c6fBs'
+    })
+    return this.http.get(`https://api.spotify.com/v1/artists/${id}/top-tracks?country=ES`,{headers})
+    .pipe(
+      map((data:any)=>data.tracks)
+    )
   }
 }
