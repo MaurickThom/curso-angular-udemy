@@ -3,6 +3,10 @@ import { Observable, pipe } from 'rxjs';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import {map} from 'rxjs/operators'
 
+// http://localhost:3000/api/spotify/c7a4f9096afd462990beeced334c90bc/e8dd7311ea4440e5b229a40a65546e3b
+/**
+ * npm run watch
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -46,4 +50,6 @@ export class SpotifyService {
       map((data:any)=>data.tracks)
     )
   }
+
+
 }
