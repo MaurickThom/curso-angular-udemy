@@ -15,7 +15,7 @@ app.get('/spotify/:client_id/:client_secret', (req, resp) => {
     let client_secret = req.params.client_secret;
     let spotifyUrl = 'https://accounts.spotify.com/api/token';
 
-    var authOptions = {
+    const authOptions = {
         url: spotifyUrl,
         headers: {
             Authorization: 'Basic ' + new Buffer(client_id + ':' + client_secret).toString('base64')
@@ -25,8 +25,6 @@ app.get('/spotify/:client_id/:client_secret', (req, resp) => {
         },
         json: true
     };
-
-
     request.post(authOptions, (err, httpResponse, body) => {
 
         if (err) {
@@ -37,9 +35,7 @@ app.get('/spotify/:client_id/:client_secret', (req, resp) => {
             })
         }
         resp.json(body);
-
     });
-
 });
 
 
