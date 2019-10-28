@@ -1,5 +1,5 @@
-import * as express from 'express';
-import request from 'request'
+const request = require('request')
+const express = require('express')
 const path = require('path');
 const app = express()
 // const router = express.Router();
@@ -9,7 +9,7 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
-app.get('/spotify/:client_id/:client_secret', (req, resp) => {
+app.get('/api/spotify/:client_id/:client_secret', (req, resp) => {
 
     let client_id = req.params.client_id;
     let client_secret = req.params.client_secret;
@@ -37,6 +37,12 @@ app.get('/spotify/:client_id/:client_secret', (req, resp) => {
         resp.json(body);
     });
 });
+
+app.get('/api',(req,res)=>{
+    return res.json({
+        message:'Servidor corriendo junto a angular'
+    })
+})
 
 
 app.listen(port, ()=> {
