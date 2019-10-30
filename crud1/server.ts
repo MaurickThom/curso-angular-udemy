@@ -51,6 +51,21 @@ app.post('/api/users',async(req,res)=>{
     })
     await saveDB()
 })
+app.put('/api/users/:id',async(req,res)=>{
+    const {id} = req.params
+    const {name,country} = req.body
+    await loadingDB()
+
+    db = db.reduce((acc,curr)=>{
+        if(curr.id===id) {
+            curr.name = name
+            curr.country = country
+        }
+        return acc.push(curr)
+    },[])
+    await saveDB()
+})
+
 
 
 app.listen(3000,()=>console.log('listen in port 3000'))
