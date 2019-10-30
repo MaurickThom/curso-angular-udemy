@@ -22,4 +22,7 @@ export class ArrEmployeeService {
     formData.append('country',country)
     return this.http.post('api/users',formData)
   }
+  updateUser(id:string | number,name?:string,country?:string):Observable<anu>{
+
+  }
 }
