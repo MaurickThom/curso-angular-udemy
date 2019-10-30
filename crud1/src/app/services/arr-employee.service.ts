@@ -16,4 +16,10 @@ export class ArrEmployeeService {
   getUser(id:number | string):Observable<Employee>{
     return this.http.get<Employee>(`api/users/${id}`)
   }
+  createUser(name:string,country:string):Observable<any>{
+    const formData = new FormData()
+    formData.append('name',name)
+    formData.append('country',country)
+    return this.http.post('api/users',formData)
+  }
 }

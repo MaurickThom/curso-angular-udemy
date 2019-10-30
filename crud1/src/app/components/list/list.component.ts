@@ -10,13 +10,13 @@ export class ListComponent implements OnInit {
 
   @Input('listUsers') listUsers;
   @Output() userSelected = new EventEmitter<Employee>()
+  selectedEmployee: Employee = {id:0, name: '', country: ''};
   constructor(
   ) { }
 
   ngOnInit() {
     console.log(this.listUsers);
   }
-  selectedEmployee: Employee = {id:0, name: '', country: ''};
 
   openForEdit(employee: Employee): void 
   {
