@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InsertComponent } from './components/insert/insert.component';
 import { ListComponent } from './components/list/list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ArrEmployeeService } from './services/arr-employee.service';
 
 @NgModule({
   declarations: [
@@ -14,9 +16,10 @@ import { ListComponent } from './components/list/list.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ArrEmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

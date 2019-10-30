@@ -6,7 +6,7 @@ const express = require('express'),
 const readFileAsync = promisify(readFile),
         writeFileAsync = promisify(writeFile) 
 
-let db = []
+let db:any[] = []
 
 const loadingDB = async()=>{
     try{
@@ -32,7 +32,25 @@ app.use(express.json())
 
 app.get('/api/users',async(req,res)=>{
     await loadingDB()
-    res.json(db)
+    return res.json(db)
 })
+
+app.get('/api/users/:id',async(req,res)=>{
+    await loadingDB()
+    const {id} = req.params
+    return db.find(data=>data.id===id)
+})
+
+app.post('/api/users',async(req,res)=>{
+    const {name,country} = req.body
+    await loadingDB()
+    db.push({
+        id: db.slice(-1)[0] ? db.slice(-1)[0].id + 1 : 1,
+        name,
+        country
+    })
+    await saveDB()
+})
+
 
 app.listen(3000,()=>console.log('listen in port 3000'))

@@ -1,9 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Employee } from '../models/employee';
-
+import { Observable } from 'rxjs';
+import {HttpClient} from  '@angular/common/http'
 @Injectable({
   providedIn: 'root'
 })
 export class ArrEmployeeService {
-  constructor() { }
+  constructor(
+    private http:HttpClient
+  ) { }
+
+  getUsers():Observable<Employee[]>{
+    return this.http.get<Employee[]>('http://localhost:3000/api/users')
+  }
+  getUser(id:number | string):Observable<Employee>{
+    return this.http.get<Employee>(`http://localhost:3000/api/users/${id}`)
+  }
 }
