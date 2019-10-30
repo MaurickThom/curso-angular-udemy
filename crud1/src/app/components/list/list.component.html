@@ -1,7 +1,11 @@
 <ul class="list-group">
-    <li class="list-group-item list-group-item-action">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Morbi leo risus</li>
-    <li class="list-group-item">Porta ac consectetur ac</li>
-    <li class="list-group-item">Vestibulum at eros</li>
+    <li
+    [ngStyle]="{'cursor': 'pointer'}"
+    *ngFor="let user of listUsers"
+    class="list-group-item list-group-item-action"
+    (click)="openForEdit(user)"
+    [class.active]="user == selectedEmployee"
+    >
+    <span class="badge badge-primary">{{user.id}}</span> - {{ user.name }} - {{user.country}}
+  </li>
 </ul>

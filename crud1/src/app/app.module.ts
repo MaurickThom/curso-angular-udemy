@@ -19,7 +19,7 @@ import { ArrEmployeeService } from './services/arr-employee.service';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [ArrEmployeeService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

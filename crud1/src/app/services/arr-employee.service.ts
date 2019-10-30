@@ -11,9 +11,9 @@ export class ArrEmployeeService {
   ) { }
 
   getUsers():Observable<Employee[]>{
-    return this.http.get<Employee[]>('http://localhost:3000/api/users')
+    return this.http.get<Employee[]>('api/users')
   }
   getUser(id:number | string):Observable<Employee>{
-    return this.http.get<Employee>(`http://localhost:3000/api/users/${id}`)
+    return this.http.get<Employee>(`api/users/${id}`)
   }
 }
