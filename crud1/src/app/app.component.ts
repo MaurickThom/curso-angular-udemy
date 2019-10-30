@@ -9,6 +9,7 @@ import { ArrEmployeeService } from './services/arr-employee.service';
 })
 export class AppComponent implements OnInit{
   private listUsers:Employee[] = []
+  private userSelected: Employee = {id:0, name: '', country: ''};
   private loading = true
   constructor(
     private apiUsers:ArrEmployeeService
@@ -19,5 +20,8 @@ export class AppComponent implements OnInit{
       this.listUsers = data
       this.loading = false
     })
+  }
+  userSelectedFunc($event){
+    this.userSelected = $event
   }
 }

@@ -7,6 +7,7 @@ import { InsertComponent } from './components/insert/insert.component';
 import { ListComponent } from './components/list/list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ArrEmployeeService } from './services/arr-employee.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,9 +18,12 @@ import { ArrEmployeeService } from './services/arr-employee.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    ArrEmployeeService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

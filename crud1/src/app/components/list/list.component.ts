@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 import { Employee } from 'src/app/models/employee';
 
 @Component({
@@ -9,6 +9,7 @@ import { Employee } from 'src/app/models/employee';
 export class ListComponent implements OnInit {
 
   @Input('listUsers') listUsers;
+  @Output() userSelected = new EventEmitter<Employee>()
   constructor(
   ) { }
 
@@ -20,5 +21,6 @@ export class ListComponent implements OnInit {
   openForEdit(employee: Employee): void 
   {
     this.selectedEmployee = employee;
+    this.userSelected.emit(employee)
   }
 }
