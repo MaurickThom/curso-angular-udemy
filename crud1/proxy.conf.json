@@ -1,8 +1,13 @@
 {
     "/api/*": {
-        "target": "http://localhost:3000/",
+        "target": "http://localhost:3000",
+        "methods": ["POST","GET","PUT","DELETE"],
+        "secure": false,
+        "logLevel": "debug",
         "changeOrigin": true,
-        "secure": true,
-        "logLevel": "debug"
+        "pathRewrite": {
+            "^/api/users": "/api/users",
+            "^/api": ""
+        }
     }
 }
