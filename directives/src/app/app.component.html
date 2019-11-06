@@ -5,17 +5,31 @@
   </h1>
   <div class="row">
     <div class="col-12">
-      <p [ngStyle]="{'font-size': cssFontSize + 'px'}">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum quis magnam placeat excepturi laudantium harum maxime, voluptatibus ducimus necessitatibus delectus ex asperiores sapiente assumenda dolore inventore accusantium omnis quisquam rem.</p>
+      <p [ngStyle]="{'font-size': cssFontSize + 'px'}">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum
+        quis magnam placeat excepturi laudantium harum maxime, voluptatibus ducimus necessitatibus delectus ex
+        asperiores sapiente assumenda dolore inventore accusantium omnis quisquam rem.</p>
     </div>
   </div>
   <div class="row">
     <div class="col-12">
-        <button type="button" class="btn btn-lg btn-primary mr-2"
-        (click)="cssFontSize = cssFontSize + 1"
-        >+</button>
-        <button type="button" class="btn btn-primary btn-lg"
-        (click)="cssFontSize = cssFontSize - 1"
-        >-</button>
+      <button type="button" class="btn btn-lg btn-primary mr-2" (click)="cssFontSize = cssFontSize + 1">+</button>
+      <button type="button" class="btn btn-primary btn-lg" (click)="cssFontSize = cssFontSize - 1">-</button>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-12">
+      <div class="alert alert-success" role="alert"
+      [ngClass]="isSuccess ? 'alert-success':'alert-danger'"
+      >
+        A simple success alert—check it out!
+      </div>
+    </div>
+    <div class="col">
+      <button type="button" class="btn btn-lg btn-primary mr-2" 
+      (click)="isSuccess= true">Success</button>
+      <button type="button" class="btn btn-danger btn-lg" 
+      (click)="isSuccess=false">Error</button>
     </div>
   </div>
 </div>
