@@ -19,36 +19,37 @@
 
   <div class="row mt-5">
     <div class="col-12">
-      <div class="alert alert-success" role="alert"
-      [ngClass]="isSuccess ? 'alert-success':'alert-danger'"
-      >
+      <div class="alert alert-success" role="alert" [ngClass]="isSuccess ? 'alert-success':'alert-danger'">
         A simple success alert—check it out!
       </div>
     </div>
     <div class="col">
-      <button type="button" class="btn btn-lg btn-primary mr-2" 
-      (click)="isSuccess= true">Success</button>
-      <button type="button" class="btn btn-danger btn-lg" 
-      (click)="isSuccess=false">Error</button>
+      <button type="button" class="btn btn-lg btn-primary mr-2" (click)="isSuccess= true">Success</button>
+      <button type="button" class="btn btn-danger btn-lg" (click)="isSuccess=false">Error</button>
     </div>
   </div>
-  
+
   <div class="row mt-5">
     <div class="col">
       <p class="h3">Proceso asincrono</p>
-      <button type="button" class="btn btn-lg btn-primary mr-2"
-        (click)="asincronia()"
-        [disabled]="isLoading ? 'disabled':''"
-      >
+      <button type="button" class="btn btn-lg btn-primary mr-2" (click)="asincronia()"
+        [disabled]="isLoading ? 'disabled':''">
         <ng-container *ngIf="!isLoading; then thenTemplate; else elseTemplate"></ng-container>
         <ng-template #thenTemplate>
-            <i class="far fa-save"></i>
-            Guardar cambios
+          <i class="far fa-save"></i>
+          Guardar cambios
         </ng-template>
         <ng-template #elseTemplate>
-            <i class="fa fa-sync-alt fa-5x fa-spin" style="font-size: 16px;"></i>
-            Cargando
+          <i class="fa fa-sync-alt fa-5x fa-spin" style="font-size: 16px;"></i>
+          Cargando
         </ng-template>
       </button>
     </div>
+  </div>
+  <div class="row mt-5">
+    <p appMyDirective>Hello World</p>
+  </div>
+  <div class="row">
+      <p appMyDirective>Hello World</p>
+  </div>
 </div>
