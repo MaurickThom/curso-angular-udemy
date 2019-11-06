@@ -1,0 +1,21 @@
+<div class="container">
+  <h1 class="m-3 text-center">
+    Demo
+    <small class="text-muted" style="font-size: .7em;"> Angular</small>
+  </h1>
+  <div class="row">
+    <div class="col-12">
+      <p [ngStyle]="{'font-size': cssFontSize + 'px'}">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum quis magnam placeat excepturi laudantium harum maxime, voluptatibus ducimus necessitatibus delectus ex asperiores sapiente assumenda dolore inventore accusantium omnis quisquam rem.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+        <button type="button" class="btn btn-lg btn-primary mr-2"
+        (click)="cssFontSize = cssFontSize + 1"
+        >+</button>
+        <button type="button" class="btn btn-primary btn-lg"
+        (click)="cssFontSize = cssFontSize - 1"
+        >-</button>
+    </div>
+  </div>
+</div>
