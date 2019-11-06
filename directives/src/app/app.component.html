@@ -32,4 +32,23 @@
       (click)="isSuccess=false">Error</button>
     </div>
   </div>
+  
+  <div class="row mt-5">
+    <div class="col">
+      <p class="h3">Proceso asincrono</p>
+      <button type="button" class="btn btn-lg btn-primary mr-2"
+        (click)="asincronia()"
+        [disabled]="isLoading ? 'disabled':''"
+      >
+        <ng-container *ngIf="!isLoading; then thenTemplate; else elseTemplate"></ng-container>
+        <ng-template #thenTemplate>
+            <i class="far fa-save"></i>
+            Guardar cambios
+        </ng-template>
+        <ng-template #elseTemplate>
+            <i class="fa fa-sync-alt fa-5x fa-spin" style="font-size: 16px;"></i>
+            Cargando
+        </ng-template>
+      </button>
+    </div>
 </div>
