@@ -1,7 +1,7 @@
 # **Ciclo de vida de un componente en Angular**
 
 - ngOnInit              : Cuando el componente está inicializado o despues del primer ngOnChanges .Se ejecuta luego del constructor,cuando el componente ya esté cargado .
-- ngOnchanges           : Cuando la data de las propiedades relacioandas cambian
+- ngOnchanges           : Cuando la data de las propiedades relacionadas cambian
 - ngDoCheck             : Se dispara durante cada revisión del ciclo de detección de cambios
 - ngAfterContentInit    : Despues de insertar algún tipo de contenido (`<app-pagina></app-pagina>`)
 - ngAfterContentChecked : Después de la revisón del contenido insertado
