@@ -1,0 +1,75 @@
+<div class="container">
+    <h1 class="m-3 text-center">
+        Demo
+        <small class="text-muted" style="font-size: .7em;"> Angular</small>
+    </h1>
+    <div class="row">
+        <div class="col-12">
+            <p [ngStyle]="{'font-size': cssFontSize + 'px'}">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Earum
+                quis magnam placeat excepturi laudantium harum maxime, voluptatibus ducimus necessitatibus delectus ex
+                asperiores sapiente assumenda dolore inventore accusantium omnis quisquam rem.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <button type="button" class="btn btn-lg btn-primary mr-2" (click)="cssFontSize = cssFontSize + 1">+</button>
+            <button type="button" class="btn btn-primary btn-lg" (click)="cssFontSize = cssFontSize - 1">-</button>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="alert alert-success" role="alert" [ngClass]="isSuccess ? 'alert-success':'alert-danger'">
+                A simple success alert—check it out!
+            </div>
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-lg btn-primary mr-2" (click)="isSuccess= true">Success</button>
+            <button type="button" class="btn btn-danger btn-lg" (click)="isSuccess=false">Error</button>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col">
+            <p class="h3">Proceso asincrono</p>
+            <button type="button" class="btn btn-lg btn-primary mr-2" (click)="asincronia()"
+                [disabled]="isLoading ? 'disabled':''">
+                <ng-container *ngIf="!isLoading; then thenTemplate; else elseTemplate"></ng-container>
+                <ng-template #thenTemplate>
+                    <i class="far fa-save"></i>
+                    Guardar cambios
+                </ng-template>
+                <ng-template #elseTemplate>
+                    <i class="fa fa-sync-alt fa-5x fa-spin" style="font-size: 16px;"></i>
+                    Cargando
+                </ng-template>
+            </button>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <p appMyDirective>Hello World</p>
+    </div>
+    <div class="row">
+        <p appMyDirective>Hello World</p>
+    </div>
+    <div class="row">
+
+        <button type="button" class="btn btn-lg btn-primary mr-2" 
+        (click)="changeAlert()">{{_alerta}}</button>
+
+        <div class="col">
+            <span [ngSwitch]="_alerta">
+                <div class="alert alert-info" role="alert"       *ngSwitchCase="'information'">
+                    This is a info alert—check it out!
+                </div>
+                <div class="alert alert-danger" role="alert" *ngSwitchCase="'danger'">
+                    This is a danger alert—check it out!
+                </div>
+                <p *ngSwitchDefault>
+
+                </p>
+            </span>
+        </div>
+    </div>
+</div>

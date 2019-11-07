@@ -1,0 +1,14 @@
+<div class="row mt-4">
+    <div class="col-md-12 text-center">
+            <input type="button" class="btn btn-secondary" value="New"
+            [routerLink]="['new']" routerLinkActive="active" 
+            > 
+            <input type="button" class="btn btn-secondary" value="Edit"
+            [routerLink]="['edit']" routerLinkActive="active" 
+            > 
+            <input type="button" class="btn btn-secondary" value="Detail"
+            [routerLink]="['detail']" routerLinkActive="active" 
+            > 
+    </div>
+</div>
+<router-outlet></router-outlet>
