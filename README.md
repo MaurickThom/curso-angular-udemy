@@ -11,4 +11,6 @@
 
 ## **Referencias**
 
-- [Ciclo de vida](https://medium.com/angular-chile/angular-componentes-y-sus-ciclos-de-vida-aa639e13a688)
+- [Ciclo de vida I](https://medium.com/angular-chile/angular-componentes-y-sus-ciclos-de-vida-aa639e13a688)
+- [Ciclo de vida II](https://www.youtube.com/watch?v=I2niAQioGvI)
+- [Ciclo de vida III](https://angular.io/guide/lifecycle-hooks)
