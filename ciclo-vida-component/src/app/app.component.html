@@ -4,7 +4,7 @@
 <button (click)="add()"> Suma</button>
 
 <app-changes
-  [input]="val"
+  [(input)]="val"
   (out)="changes($event)"
 ></app-changes>
 <router-outlet></router-outlet>

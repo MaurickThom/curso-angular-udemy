@@ -14,8 +14,10 @@ export class ChangesComponent implements OnInit {
   ngOnInit() {
     console.log(this.input)
   }
+  ngOnChanges(){
+    console.log('cambios ',this.input)
+  }
   fnEmit($event){
-
     this.input = $event.target.value
     this.out.emit(this.input)
   }
