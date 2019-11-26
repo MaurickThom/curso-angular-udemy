@@ -4,6 +4,7 @@ import { BodyComponent } from './components/body/body.component';
 import { PreciosComponent } from './components/precios/precios.component';
 import { ProtegidaComponent } from './components/protegida/protegida.component';
 import { CallbackComponent } from './components/callback/callback.component';
+import { AuthGuard } from './auth.guard';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   },
   {
     path:'protegida',
-    component:ProtegidaComponent
+    component:ProtegidaComponent,
+    canActivate:[AuthGuard]
   },
 
   {
