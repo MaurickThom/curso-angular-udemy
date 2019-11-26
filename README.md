@@ -9,8 +9,11 @@
   - ngAfterViewChecked    : Después de cada revisión de los componentes/hijos
 - ngOnDestroy           : Justo **`antes`** que se destruya el componente o directiva
 
+> *Auth0*
+
 ## **Referencias**
 
 - [Ciclo de vida I](https://medium.com/angular-chile/angular-componentes-y-sus-ciclos-de-vida-aa639e13a688)
 - [Ciclo de vida II](https://www.youtube.com/watch?v=I2niAQioGvI)
 - [Ciclo de vida III](https://angular.io/guide/lifecycle-hooks)
+- [Auth0](https://www.infobae.com/economia/finanzas-y-negocios/2019/05/25/el-guardian-de-los-passwords-la-historia-de-auth0-la-startup-que-ya-vale-usd-1-100-millones-y-es-el-quinto-unicornio-argentino/)
