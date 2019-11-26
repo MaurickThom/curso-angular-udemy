@@ -10,6 +10,7 @@
 - ngOnDestroy           : Justo **`antes`** que se destruya el componente o directiva
 
 > *Auth0: Podremos autenticar con servicios como Facebook,Twitter y Google*
+> *Guard*
 
 ## **Referencias**
 
@@ -17,3 +18,4 @@
 - [Ciclo de vida II](https://www.youtube.com/watch?v=I2niAQioGvI)
 - [Ciclo de vida III](https://angular.io/guide/lifecycle-hooks)
 - [Auth0](https://www.infobae.com/economia/finanzas-y-negocios/2019/05/25/el-guardian-de-los-passwords-la-historia-de-auth0-la-startup-que-ya-vale-usd-1-100-millones-y-es-el-quinto-unicornio-argentino/)
+- [Guard](https://codingpotions.com/angular-seguridad)
