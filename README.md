@@ -9,7 +9,7 @@
   - ngAfterViewChecked    : Después de cada revisión de los componentes/hijos
 - ngOnDestroy           : Justo **`antes`** que se destruya el componente o directiva
 
-> *Auth0*
+> *Auth0: Podremos autenticar con servicios como Facebook,Twitter y Google*
 
 ## **Referencias**
 
