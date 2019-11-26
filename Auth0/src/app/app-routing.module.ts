@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { BodyComponent } from './components/body/body.component';
 import { PreciosComponent } from './components/precios/precios.component';
 import { ProtegidaComponent } from './components/protegida/protegida.component';
+import { CallbackComponent } from './components/callback/callback.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,11 @@ const routes: Routes = [
   {
     path:'protegida',
     component:ProtegidaComponent
+  },
+
+  {
+    path:'callback',
+    component:CallbackComponent
   },
   {
     path:"",
