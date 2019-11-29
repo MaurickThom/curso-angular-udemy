@@ -11,6 +11,35 @@
 
 > *Auth0: Podremos autenticar con servicios como Facebook,Twitter y Google*
 > *Guard*
+> *ng g i models/IUser interface* -> iuser.interface.ts objetivo IUser.interface.ts
+
+## *Tipos de Validaciones*
+
+Las validaciones se usan mucho en los formularios , y para aquellos existen tres tipos.
+
+- Form con NgModel : `([ngModel])="user.name"`
+- Forms con Templates : La lógica está dentro del template, se hace mas complejo y menos escalable
+- Forms con FormBuilder : Deja la lógica en archivo correspondiente de ts del componente y es escalable
+
+```typescript
+    // FormBuilder
+    this._formGroup = this._builder.group({
+      name:['',Validators.required],
+      user:['',Validators.required],
+      email:['',
+        Validators.compose(
+          [
+            Validators.required,
+            Validators.email,
+            Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')
+          ]
+        )
+      ],
+      password:['',Validators.compose([Validators.required,Validators.minLength(6)])]
+    })
+```
+
+### **Validaciones sincronas y asincronas**
 
 ## **Referencias**
 
