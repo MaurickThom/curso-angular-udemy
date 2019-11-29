@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IUser } from 'src/app/models/iuser.interface';
+import { IUser } from 'src/app/models/IUser.interface';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
