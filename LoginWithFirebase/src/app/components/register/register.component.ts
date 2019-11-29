@@ -33,8 +33,9 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
   }
+  // cuando es formulario por template el atributo debe ser form:NgForm
   sendInfo(form){
-    console.log(form);
+    // console.log(form);
   }
 
 }
