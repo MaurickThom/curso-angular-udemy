@@ -1,29 +1,49 @@
-<div class="limiter">
+<div class="limiter animated fadeInRight" >
   <div class="container-login100">
     <div class="wrap-login100 p-t-50 p-b-90">
-      <form class="login100-form validate-form flex-sb flex-w">
+      <form [formGroup]="_formGroup" #form="ngForm" (ngSubmit)="onSubmit(_formGroup)"
+        class="login100-form validate-form flex-sb flex-w">
+
         <span class="login100-form-title p-b-51">
           Login
         </span>
 
+        <div class=""
+          *ngIf="_formGroup.get('user').errors || _formGroup.get('user').dirty || _formGroup.get('user').touched">
+          <span class="text-danger animated fadeIn"
+            *ngIf="_formGroup.get('user').hasError('required') && _formGroup.get('user').touched">
+            El user es necesario
+          </span>
+        </div>
         <div class="wrap-input100 m-b-16">
-          <input class="input100" type="text" name="username" placeholder="Username">
-
+          <input formControlName="user" class="input100" type="text" name="user" placeholder="Nombre de Usuario">
           <span class="focus-input100"></span>
         </div>
-
+        <div class=""
+          *ngIf="_formGroup.get('password').errors || _formGroup.get('password').dirty || _formGroup.get('password').touched">
+          <span class="text-danger animated fadeIn"
+            *ngIf="_formGroup.get('password').hasError('required') && _formGroup.get('password').touched">
+            El password es necesario
+          </span>
+          <span class="text-danger animated fadeIn" *ngIf="_formGroup.get('password').hasError('minlength')">
+            El password debe tener mas de 6 caracteres
+          </span>
+        </div>
+        <!-- <span class="text-danger">La contraseña debe de ser más de 6 letras</span> -->
         <div class="wrap-input100 m-b-16" data-validate="Password is required">
-          <input class="input100" type="password" name="pass" placeholder="Password">
+          <input formControlName="password" class="input100" type="password" name="pass" placeholder="Password">
           <span class="focus-input100"></span>
         </div>
+
 
         <div class="flex-sb-m w-full p-t-3 p-b-24">
           <!-- <div class="contact100-form-checkbox">
-                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-                        <label class="label-checkbox100" for="ckb1">
-                            Recordar mi usuario
-                        </label>
-                    </div> -->
+                            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                            <label class="label-checkbox100" for="ckb1">
+                                Recordar mi usuario
+                            </label>
+                        </div> -->
+
           <div class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input" id="ckb1" name="remember-me">
             <label class="custom-control-label" for="ckb1">Recordar mi usuario</label>
@@ -37,11 +57,10 @@
         </div>
 
         <div class="container-login100-form-btn m-t-17">
-          <button class="login100-form-btn" type="submit">
-            Ingresar
+          <button [disabled]="_formGroup.invalid" class="login100-form-btn" type="submit">
+            Login
           </button>
         </div>
-
       </form>
     </div>
   </div>
