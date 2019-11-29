@@ -1,9 +1,15 @@
 <div class="limiter">
   <div class="container-login100">
     <div class="wrap-login100 p-t-50 p-b-90">
+
+      <!--
+        #form="ngForm"
+        (ngSubmit)="sendInfo(form)"
+      -->
       <form
       [formGroup]="_formGroup"
-      (ngSubmit)="sendInfo()"
+      #form="ngForm"
+      (ngSubmit)="sendInfo(_formGroup)"
       class="login100-form validate-form flex-sb flex-w">
 
         <span class="login100-form-title p-b-51">
@@ -14,10 +20,28 @@
         <div class="wrap-input100 m-b-16">
           <input
           formControlName="email"
-          class="input100" type="text" name="email" placeholder="Email" [(ngModel)]="user.email">
-
+          class="input100"
+          type="email"
+          name="email"
+          placeholder="Email"
+          [(ngModel)]="user.email"
+          >
           <span class="focus-input100"></span>
         </div>
+        <div class=""
+            *ngIf="_formGroup.get('email').errors || _formGroup.get('email').dirty || _formGroup.get('email').touched"
+          >
+            <p
+              *ngIf="_formGroup.get('email').hasError('required') && _formGroup.get('email').touched"
+            >
+              El email es necesario
+            </p>
+            <p
+              *ngIf="_formGroup.get('email').hasError('email') && _formGroup.get('email').touched"
+            >
+              El email es incorrecto
+            </p>
+          </div>
         <div class="wrap-input100 m-b-16">
           <input
           formControlName="user"

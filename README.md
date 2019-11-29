@@ -19,6 +19,7 @@ Las validaciones se usan mucho en los formularios , y para aquellos existen tres
 
 - Form con NgModel : `([ngModel])="user.name"`
 - Forms con Templates : La lógica está dentro del template, se hace mas complejo y menos escalable
+  - `<form #f="ngForm"> </form>`
 - Forms con FormBuilder : Deja la lógica en archivo correspondiente de ts del componente y es escalable
 
 ```typescript
@@ -40,6 +41,17 @@ Las validaciones se usan mucho en los formularios , y para aquellos existen tres
 ```
 
 ### **Validaciones sincronas y asincronas**
+
+- Sincronas : Cuando el value del input no se necesita validar al momento de digitar
+- Asincronas : Cuando el value del input se necesita validar al momento de digitar
+
+```typescript
+    {
+        email:['',[validaciones sincronas],[validaciones asincronas]]
+    }
+    // Un ejemplo para la validacion asincrona puede ser si el email 
+    // existe o no existe en la base de datos
+```
 
 ## **Referencias**
 

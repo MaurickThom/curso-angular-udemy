@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IUser } from 'src/app/models/IUser.interface';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -33,8 +33,8 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
   }
-  sendInfo(){
-
+  sendInfo(form){
+    console.log(form);
   }
 
 }
