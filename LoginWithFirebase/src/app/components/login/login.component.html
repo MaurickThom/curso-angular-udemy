@@ -9,14 +9,21 @@
         </span>
 
         <div class=""
-          *ngIf="_formGroup.get('user').errors || _formGroup.get('user').dirty || _formGroup.get('user').touched">
+          *ngIf="_formGroup.get('email').errors || _formGroup.get('email').dirty || _formGroup.get('email').touched">
           <span class="text-danger animated fadeIn"
-            *ngIf="_formGroup.get('user').hasError('required') && _formGroup.get('user').touched">
-            El user es necesario
+            *ngIf="_formGroup.get('email').hasError('required') && _formGroup.get('email').touched">
+            El email es necesario
+          </span>
+          <span class="text-danger animated fadeIn" *ngIf="(_formGroup.get('email').hasError('email') &&
+                  _formGroup.get('email').touched )           ||
+                  _formGroup.get('email').hasError('pattern')
+            ">
+            El email es incorrecto
           </span>
         </div>
         <div class="wrap-input100 m-b-16">
-          <input formControlName="user" class="input100" type="text" name="user" placeholder="Nombre de Usuario">
+          <input formControlName="email" class="input100" type="email" name="email" placeholder="Email"
+            [(ngModel)]="user.email">
           <span class="focus-input100"></span>
         </div>
         <div class=""
