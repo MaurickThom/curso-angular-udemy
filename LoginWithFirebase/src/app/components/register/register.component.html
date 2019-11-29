@@ -7,7 +7,7 @@
         #form="ngForm"
         (ngSubmit)="sendInfo(form)"
       -->
-      <form [formGroup]="_formGroup" #form="ngForm" (ngSubmit)="sendInfo(_formGroup)"
+      <form [formGroup]="_formGroup" #form="ngForm" (ngSubmit)="onSubmit(_formGroup)"
         class="login100-form validate-form flex-sb flex-w">
 
         <span class="login100-form-title p-b-51">

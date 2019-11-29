@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from 'selenium-webdriver/http';
 import { IUser } from '../models/IUser.interface';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +27,11 @@ export class AuthService {
   logIn(user:IUser){
 
   }
-  register(user:IUser){
-
+  register(user:IUser):Observable<any>{
+    const authData = {
+      ...user,
+      returnSecureToken:true
+    }
+    return this.http.post(`${this.URL}accounts:signUp?key=${this.API_KEY}`,authData)
   }
 }

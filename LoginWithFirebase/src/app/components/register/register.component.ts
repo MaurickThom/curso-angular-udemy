@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IUser } from 'src/app/models/IUser.interface';
 import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,8 @@ export class RegisterComponent implements OnInit {
   user:IUser
   _formGroup: FormGroup
   constructor(
-    private _builder:FormBuilder
+    private _builder:FormBuilder,
+    private apiAuth:AuthService
   ) {
     this.user = {}
     this._formGroup = this._builder.group({
@@ -34,8 +36,13 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
   // cuando es formulario por template el atributo debe ser form:NgForm
-  sendInfo(form){
+  onSubmit(form:NgForm){
     // console.log(form);
+    // console.log(form.value);
+    const user:IUser = {...form.value}
+    this.apiAuth.register(user).subscribe(data=>{
+      console.log(data)
+    })
   }
 
 }
