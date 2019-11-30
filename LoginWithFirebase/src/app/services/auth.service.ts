@@ -25,7 +25,11 @@ export class AuthService {
 
   }
   logIn(user:IUser){
-
+    const authData = {
+      ...user,
+      returnSecureToken:true
+    }
+    return this.http.post<any>(`${this.URL}accounts:signInWithPassword?key=${this.API_KEY}`,authData)
   }
   register(user:IUser):Observable<any>{
     const authData = {

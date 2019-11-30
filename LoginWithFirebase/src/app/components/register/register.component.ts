@@ -42,6 +42,8 @@ export class RegisterComponent implements OnInit {
     const user:IUser = {...form.value}
     this.apiAuth.register(user).subscribe(data=>{
       console.log(data)
+    },err=>{
+      console.log('errores')
     })
   }
 
