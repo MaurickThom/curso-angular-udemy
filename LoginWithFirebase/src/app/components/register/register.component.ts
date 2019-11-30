@@ -43,7 +43,7 @@ export class RegisterComponent implements OnInit {
     this.apiAuth.register(user).subscribe(data=>{
       console.log(data)
     },err=>{
-      console.log('errores')
+      console.log(err.error.error.message)
     })
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
 import { IUser } from 'src/app/models/IUser.interface';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,8 @@ export class LoginComponent implements OnInit {
   user:IUser
   _formGroup:FormGroup
   constructor(
-    private _builder:FormBuilder
+    private _builder:FormBuilder,
+    private apiAuth:AuthService
   ) {
     this.user = {}
     this._formGroup = this._builder.group(
@@ -33,8 +35,13 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
-  onSubmit(values){
-
+  onSubmit(form:NgForm){
+    const user= {...form.value}
+    this.apiAuth.logIn(user).subscribe(data=>{
+      console.log(data);
+    },err=>{
+      console.log(err.error.error.message);
+    })
   }
 
 }
