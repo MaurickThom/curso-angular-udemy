@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-
+  rememberMe:boolean = false
   user:IUser
   _formGroup: FormGroup
   constructor(
@@ -37,6 +37,10 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(localStorage.getItem('email')){
+      this.user.email = localStorage.getItem('email')
+      this.rememberMe = true
+    }
   }
   // cuando es formulario por template el atributo debe ser form:NgForm
   onSubmit(form:NgForm){
@@ -52,6 +56,9 @@ export class RegisterComponent implements OnInit {
     this.apiAuth.register(user).subscribe(data=>{
       console.log(data)
       Swal.close()
+      if(this.rememberMe){
+        localStorage.setItem('email',user.email)
+      }
       this.router.navigateByUrl('/home')
     },err=>{
       console.log(err.error.error.message)

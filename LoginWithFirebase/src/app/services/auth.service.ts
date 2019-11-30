@@ -26,7 +26,7 @@ export class AuthService {
   }
 
   logOut(){
-
+    localStorage.removeItem('token')
   }
   logIn(user:IUser){
     const authData = {
@@ -37,7 +37,7 @@ export class AuthService {
     .pipe(
       map(response=>{
         console.log('map rxjs');
-        this.saveToken(response['idToken'])
+        this.saveToken(response['idToken'],response)
         return response
       })
     )
@@ -51,18 +51,34 @@ export class AuthService {
     .pipe(
       map(response=>{
         console.log('map rxjs');
-        this.saveToken(response['idToken'])
+        this.saveToken(response['idToken'],response)
         return response
       })
     )
   }
 
-  private saveToken(idToken:string){
+  private saveToken(idToken:string,response:any){
     this.userToken = idToken
     localStorage.setItem('token',idToken)
+
+    let today = new Date()
+    today.setSeconds( response.expiresIn)
+    localStorage.setItem('expire',today.getTime().toString())
   }
   private readToken(){
     this.userToken = localStorage.getItem('token') || ''
     return this.userToken
+  }
+
+  isAuthenticated():boolean{
+
+    if(this.userToken.length < 2)
+      return false
+    const expire = Number(localStorage.getItem('expire'))
+    const expireToken = new Date()
+    expireToken.setTime(expire)
+    if(expireToken > new Date())
+      return true
+    return false
   }
 }

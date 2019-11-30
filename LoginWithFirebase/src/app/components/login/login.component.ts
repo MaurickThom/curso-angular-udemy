@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   user:IUser
   _formGroup:FormGroup
+  rememberMe:boolean = false
   constructor(
     private _builder:FormBuilder,
     private apiAuth:AuthService,
@@ -36,6 +37,11 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('local.storage',localStorage.getItem('email'));
+    if(localStorage.getItem('email')){
+      this.user.email = localStorage.getItem('email')
+      this.rememberMe = true
+    }
   }
   onSubmit(form:NgForm){
     const user= {...form.value}
@@ -48,7 +54,13 @@ export class LoginComponent implements OnInit {
 
     this.apiAuth.logIn(user).subscribe(data=>{
       console.log(data);
+
+      if(this.rememberMe){
+        localStorage.setItem('email',this.user.email)
+        console.log('Entre');
+      }
       Swal.close()
+
       this.router.navigateByUrl('/home')
     },err=>{
       console.log(err.error.error.message);
