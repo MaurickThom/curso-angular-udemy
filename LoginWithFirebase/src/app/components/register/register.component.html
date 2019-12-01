@@ -13,10 +13,8 @@
         <span class="login100-form-title p-b-51">
           Crear nueva cuenta
         </span>
-
-        <!-- <span class="text-danger">El correo es obligatorio</span> -->
         <div class=""
-          *ngIf="_formGroup.get('email').errors || _formGroup.get('email').dirty || _formGroup.get('email').touched">
+          *ngIf="_formGroup.get('email').dirty || _formGroup.get('email').touched">
           <span class="text-danger animated fadeIn"
             *ngIf="_formGroup.get('email').hasError('required') && _formGroup.get('email').touched">
             El email es necesario

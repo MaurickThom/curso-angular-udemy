@@ -8,8 +8,8 @@
           Login
         </span>
 
-        <div class=""
-          *ngIf="_formGroup.get('email').errors || _formGroup.get('email').dirty || _formGroup.get('email').touched">
+        <div
+          *ngIf=" _formGroup.get('email').dirty || _formGroup.get('email').touched">
           <span class="text-danger animated fadeIn"
             *ngIf="_formGroup.get('email').hasError('required') && _formGroup.get('email').touched">
             El email es necesario

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit, AfterViewInit } from '@angular/core';
 import { IUser } from 'src/app/models/IUser.interface';
 import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit,AfterContentInit,AfterViewInit {
   rememberMe:boolean = false
   user:IUser
   _formGroup: FormGroup
@@ -41,6 +41,10 @@ export class RegisterComponent implements OnInit {
       this.user.email = localStorage.getItem('email')
       this.rememberMe = true
     }
+  }
+  ngAfterContentInit(){
+  }
+  ngAfterViewInit(){
   }
   // cuando es formulario por template el atributo debe ser form:NgForm
   onSubmit(form:NgForm){
