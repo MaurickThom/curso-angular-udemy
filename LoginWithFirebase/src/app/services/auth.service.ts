@@ -27,6 +27,7 @@ export class AuthService {
 
   logOut(){
     localStorage.removeItem('token')
+    localStorage.removeItem('expire')
   }
   logIn(user:IUser){
     const authData = {

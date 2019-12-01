@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     console.log('local.storage',localStorage.getItem('email'));
     if(localStorage.getItem('email')){
+      console.log('entre?');
       this.user.email = localStorage.getItem('email')
       this.rememberMe = true
     }
@@ -54,7 +55,7 @@ export class LoginComponent implements OnInit {
 
     this.apiAuth.logIn(user).subscribe(data=>{
       console.log(data);
-
+        localStorage.removeItem('email')
       if(this.rememberMe){
         localStorage.setItem('email',this.user.email)
         console.log('Entre');

@@ -56,6 +56,7 @@ export class RegisterComponent implements OnInit {
     this.apiAuth.register(user).subscribe(data=>{
       console.log(data)
       Swal.close()
+      localStorage.removeItem('email')
       if(this.rememberMe){
         localStorage.setItem('email',user.email)
       }

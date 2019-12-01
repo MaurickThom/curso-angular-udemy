@@ -17,7 +17,7 @@ export class VerifyGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       if(!this.api.isAuthenticated())
         return true
-        this.router.navigateByUrl('/home')
+      this.router.navigateByUrl('/home')
   }
 
 }
