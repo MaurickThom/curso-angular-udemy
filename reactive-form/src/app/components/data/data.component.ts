@@ -84,7 +84,7 @@ export class DataComponent implements OnInit {
   validateUserNameNotTaken(control: AbstractControl) {
     return this.api.checkUserNameNoyTaken(control.value).pipe(
       map(res => {
-        return res ? null : { emailTaken: true };
+        return res ? null : { usernameTaken: true };
       }
     ))
   }

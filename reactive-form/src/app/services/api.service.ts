@@ -13,12 +13,14 @@ export class ApiService {
 
   checkEmailNotTaken(email: string):Observable<any>{
     return this.http.get('assets/DB.json').pipe(
+      delay(1000),
       map((data:any)=>data.users.filter(user => user.email === email)),
       map(users=>!users.length)
     )
   }
   checkUserNameNoyTaken(name: string):Observable<boolean>{
     return this.http.get('assets/DB.json').pipe(
+      delay(1000),
       map((data:any)=>data.users.filter(user => user.name === name)),
       map(users=>!users.length)
     )
