@@ -1,24 +1,135 @@
 <div class="mt-2 ml-5">
     <h4>Formularios <small>{{title}}</small></h4>
-    <form action="">
-      <div class="form-group row">
-        <label for="" class="col-2 col-form-label">Nombre</label>
-        <div class="col-8">
-          <input type="text" class="form-control" placeholder="Nombre">
+    <form action=""
+      [formGroup]="_formGroup"
+      (ngSubmit)="submit(_formGroup)"
+    >
+      <div formGroupName="nombrecompleto" class="" [ngStyle]="{'border':true?'none':'none'}">
+
+        <div class="form-group row">
+          <label for="" class="col-2 col-form-label">Nombre</label>
+          <div class="col-8">
+            <input type="text" class="form-control" placeholder="Nombre" formControlName="nombre">
+          </div>
         </div>
-      </div>
-      <div class="form-group row">
-        <label for="" class="col-2 col-form-label">Apellido</label>
-        <div class="col-8">
-          <input type="text" class="form-control" placeholder="Apellido">
+        <div
+          *ngIf=" _formGroup.get('nombrecompleto.nombre').dirty || _formGroup.get('nombrecompleto.nombre').touched">
+          <span class="text-danger animated fadeIn"
+            *ngIf="_formGroup.get('nombrecompleto.nombre').hasError('required') && _formGroup.get('nombrecompleto.nombre').touched">
+            El nombre es necesario
+          </span>
+          <span class="text-danger animated fadeIn" *ngIf="_formGroup.get('nombrecompleto.nombre').hasError('minlength')">
+              El nombre debe tener mas de 6 caracteres
+            </span>
         </div>
+        <div class="form-group row">
+          <label
+          abel for="" class="col-2 col-form-label">Apellido</label>
+          <div class="col-8">
+            <input type="text" class="form-control" placeholder="Apellido" formControlName="apellido">
+          </div>
+        </div>
+        <div
+          *ngIf=" _formGroup.get('nombrecompleto.apellido').dirty || _formGroup.get('nombrecompleto.apellido').touched">
+          <span class="text-danger animated fadeIn"
+            *ngIf="_formGroup.get('nombrecompleto.apellido').hasError('required') && _formGroup.get('nombrecompleto.apellido').touched">
+            El apellido es necesario
+          </span>
+          <span class="text-danger animated fadeIn" *ngIf="_formGroup.get('nombrecompleto.apellido').hasError('minlength')">
+              El apellido debe tener mas de 6 caracteres
+            </span>
+        </div>
+
       </div>
+
       <div class="form-group row">
         <label for="" class="col-2 col-form-label">Correo</label>
-        <div class="col-md-8">
-          <input type="email" class="form-control" placeholder="Correo">
+        <div class="col-8">
+          <input type="email" class="form-control" placeholder="Correo" formControlName="email">
         </div>
       </div>
+
+      <div
+          *ngIf=" _formGroup.get('email').dirty || _formGroup.get('email').touched">
+          <span class="text-danger animated fadeIn"
+            *ngIf="_formGroup.get('email').hasError('required') && _formGroup.get('email').touched">
+            El email es necesario
+          </span>
+          <span class="text-danger animated fadeIn" *ngIf="(_formGroup.get('email').hasError('email') &&
+                  _formGroup.get('email').touched )           ||
+                  _formGroup.get('email').hasError('pattern')
+            ">
+            El email es incorrecto
+          </span>
+        </div>
+
+      <div class="form-group row">
+        <label for="" class="col-2 col-form-label">Password</label>
+        <div class="col-8">
+          <input type="password" class="form-control" placeholder="Password" formControlName="password">
+        </div>
+      </div>
+      <div class=""
+          *ngIf="_formGroup.get('password').errors || _formGroup.get('password').dirty || _formGroup.get('password').touched">
+          <span class="text-danger animated fadeIn"
+            *ngIf="_formGroup.get('password').hasError('required') && _formGroup.get('password').touched">
+            El password es necesario
+          </span>
+          <span class="text-danger animated fadeIn" *ngIf="_formGroup.get('password').hasError('minlength')">
+            El password debe tener mas de 6 caracteres
+          </span>
+        </div>
+
+      <div class="form-group row">
+        <label for="" class="col-2 col-form-label">Repertir</label>
+        <div class="col-8">
+          <input type="password" class="form-control" placeholder="Repetir password" formControlName="password2">
+        </div>
+      </div>
+
+      <div class=""
+          *ngIf="_formGroup.get('password2').errors || _formGroup.get('password2').dirty || _formGroup.get('password2').touched">
+          <span class="text-danger animated fadeIn"
+            *ngIf="_formGroup.get('password2').hasError('required') && _formGroup.get('password2').touched">
+            El password es necesario
+          </span>
+          <span class="text-danger animated fadeIn" *ngIf="_formGroup.get('password2').hasError('minlength')">
+            El password debe tener mas de 6 caracteres
+          </span>
+        </div>
+
+      <div class="form-group row">
+        <label for="" class="col-2 col-form-label">UserName</label>
+        <div class="col-8">
+          <input type="text" class="form-control" placeholder="UserName" formControlName="username">
+        </div>
+      </div>
+
+      <div class=""
+          *ngIf="_formGroup.get('username').errors || _formGroup.get('username').dirty || _formGroup.get('username').touched">
+          <span class="text-danger animated fadeIn"
+            *ngIf="_formGroup.get('username').hasError('required') && _formGroup.get('username').touched">
+            El username es necesario
+          </span>
+          <span class="text-danger animated fadeIn" *ngIf="_formGroup.get('username').hasError('minlength')">
+            El username debe tener mas de 6 caracteres
+          </span>
+        </div>
+
+
+        <div class="form-group row" [ngStyle]="{'border':true?'none':'none'}">
+          <label for="" class="col-2 col-form-label">Pasatiempos</label>
+          <div class="col-8" formArrayName="pasatiempos" [ngStyle]="{'border':true?'none':'none'}">
+              <input
+                *ngFor="let pasatiempo of _formGroup.controls['pasatiempos'].controls;let i=index"
+              type="text" class="form-control" [formControlName]="i"  >
+          </div>
+          <div class="col-1">
+              <button type="button" class="btn btn-primary" (click)="agregarPasatiempos()"
+              > Nuevo</button>
+          </div>
+        </div>
+
       <div class="form-group row">
           <label for="" class="col-2 col-form-label">&nbsp;</label>
           <div class="col-md-8 input-group">
@@ -27,3 +138,7 @@
         </div>
     </form>
   </div>
+
+
+
+{{ _formGroup.valid}}
