@@ -53,7 +53,9 @@ export class DataComponent implements OnInit {
   }
 
   ngOnInit() {
-    // console.log(this._formGroup.controls['password2'],'asdas');
+    this._formGroup.valueChanges.subscribe(data=>console.log(data))
+    this._formGroup.controls['username'].valueChanges.subscribe(data=>console.log(data))
+    this._formGroup.controls['username'].statusChanges.subscribe(data=>console.log(data))
   }
   submit(form:NgForm){
     const saveform = {...form}

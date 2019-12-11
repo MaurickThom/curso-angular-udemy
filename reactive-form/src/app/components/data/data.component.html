@@ -129,7 +129,7 @@
             El username debe tener mas de 6 caracteres
           </span>
 
-          <span *ngIf="_formGroup.get('username').status === 'PENDING'">
+          <span *ngIf="_formGroup.get('username').status === 'PENDING'" class="text-danger">
               <div class="animated fadeIn">
                 <i class="fa fa-sync-alt fa-1x fa-spin"></i> Checking ...
               </div>
@@ -137,7 +137,7 @@
             <!-- <span *ngIf="_formGroup.get('email').status === 'VALID'">
               😺 Email is available!
             </span> -->
-            <span *ngIf="_formGroup.get('username').errors && _formGroup.get('username').errors?.usernameTaken">
+            <span *ngIf="_formGroup.get('username').errors && _formGroup.get('username').errors?.usernameTaken" class="text-danger">
               😢 El username ya existe
             </span>
 
@@ -169,3 +169,4 @@
 
 
 {{ _formGroup.valid}}
+{{_formGroup.status}}
