@@ -13,32 +13,43 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row" *ngIf="!loading" class="animated bounceIn faster">
       <div class="col">
-          <table class="table mt-5">
+          <table class="table mt-5" *ngIf="!empty">
               <thead class="thead-dark">
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Nombre</th>
                   <th scope="col">Poder</th>
                   <th scope="col">Vivo</th>
-                  <th scope="col">Tools</th>
+                  <th scope="col" class="text-center">Tools</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>@mdo</td>
+                <tr
+                  *ngFor="let hero of arrHeroes; let i = index"
+                >
+                  <th scope="row">{{i + 1 }}</th>
+                  <td>{{ hero.name }}</td>
+                  <td>{{hero.power}}</td>
+                  <td>{{hero.status ? 'Vivo':'Muerto'}}</td>
+                  <td class="text-center">
+                    <button class="btn btn-primary" [routerLink]="['/new-hero',hero.id]" >
+                      <i class="fas fa-external-link-alt"></i>
+                      Edit
+                    </button>
+                    <button class="btn btn-danger ml-2" (click)="deleteHero(hero.id,i)">
+                      <i class="far fa-trash-alt"></i>
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               </tbody>
             </table>
       </div>
     </div>
 
-    <div class="row">
+    <div class="row" *ngIf="empty" class="animated fadeIn faster">
       <div class="col">
         <div class="alert alert-warning text-center mt-3">
             <h4 class="alert-heading">Not found</h4>
@@ -48,7 +59,7 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row" *ngIf="loading" class="animated zoomIn faster">
       <div class="col">
         <div class="alert alert-info text-center mt-3">
             <h4 class="alert-heading">Loading</h4>

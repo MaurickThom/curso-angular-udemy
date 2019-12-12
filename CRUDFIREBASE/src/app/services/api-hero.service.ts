@@ -37,6 +37,7 @@ export class ApiHeroService {
   }
 
   arrHeores(heroes:object){
+    if(!heroes) return []
     return Object.keys(heroes).reduce((acc,id)=>{
       acc.push({
         id,
@@ -50,5 +51,18 @@ export class ApiHeroService {
       map(this.arrHeores),
       delay(1000)
     )
+  }
+  getHero(id:string){
+    return this.api.get(`${this.URL}/heroes/${id}.json`).pipe(
+      map(hero=>(
+        {
+          ...hero,
+          id
+        }
+      ))
+    )
+  }
+  deleteHero(id:string){
+    return this.api.delete(`${this.URL}/heroes/${id}.json`)
   }
 }

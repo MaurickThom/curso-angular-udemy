@@ -33,6 +33,8 @@ export class NewHeroComponent implements OnInit {
   ngOnInit() {
   }
   submit(form:NgForm){
+
+
     this.hero = {
       ...this.hero,
       ...form.value,
