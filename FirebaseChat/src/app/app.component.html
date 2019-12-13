@@ -3,5 +3,11 @@
     {{item.message}}
   </li>
 </ul> -->
-<app-chat></app-chat>
+<div class="col-md-12 text-right">
+  <button class="btn btn-outline-danger" (click)="api.logout()" *ngIf="api.user.uid">
+      LogOut
+  </button>
+</div>
+<app-login  *ngIf="!api.user.uid"></app-login>
+<app-chat *ngIf="api.user.uid"></app-chat>
 <!-- <router-outlet></router-outlet> -->

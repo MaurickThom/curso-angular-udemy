@@ -4,8 +4,13 @@
     <h1>Chat</h1>
   <hr>
   <div class="app-mensajes" id="app-messages">
-    <div class="text-right" *ngFor="let chat of apichat.chats">
-      <span class="badge badge-primary ">{{chat.author}}</span>
+    <div class="text-right" *ngFor="let chat of apichat.chats"
+      [ngClass]="{'text-right': apichat.user.uid===chat.uid}"
+      >
+      <span class="badge  "
+      [ngClass]="{'badge-primary': apichat.user.uid===chat.uid,
+                  'badge-success':apichat.user.uid!==chat.uid}"
+      >{{chat.author}}</span>
       <p>{{chat.message}}</p>
     </div>
   </div>
