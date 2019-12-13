@@ -4,9 +4,9 @@
     <h1>Chat</h1>
   <hr>
   <div class="app-mensajes" id="app-messages">
-    <div class="text-right">
-      <span class="badge badge-primary ">Thom</span>
-      <p>Este es un mensaje de chat</p>
+    <div class="text-right" *ngFor="let chat of apichat.chats">
+      <span class="badge badge-primary ">{{chat.author}}</span>
+      <p>{{chat.message}}</p>
     </div>
   </div>
   <input type="text" name="message" [(ngModel)]="message" placeholder="Enviar mensaje"

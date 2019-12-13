@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, AfterContentInit } from '@angular/core';
 import { ChatService } from 'src/app/services/chat.service';
 
 @Component({
@@ -6,23 +6,41 @@ import { ChatService } from 'src/app/services/chat.service';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss']
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent implements OnInit,AfterViewInit ,AfterContentInit{
+
   message:string=''
+  element:HTMLElement
   constructor(
-    private apichat:ChatService
-  ) {
-    this.apichat.loadingMessages().subscribe((messages:any[])=>{
-      console.log(messages);
-    },err=>{
+    protected apichat:ChatService
+    ) {
+      this.apichat.loadingMessages().subscribe(()=>{
+        setTimeout(()=>{
+          console.log('message');
+          this.element.scrollTop = this.element.scrollHeight;
+        },20)
+      })
+    }
 
-    },()=>{
-      console.log('completed');
-    })
-  }
-
-  ngOnInit() {
+    ngAfterContentInit(): void {
+    }
+    ngAfterViewInit(): void {
+      this.element = document.getElementById('app-messages')
+    }
+    ngOnInit() {
+    console.log('oninit');
+    // this.element.scrollTop = this.element.scrollHeight;
   }
   sendMessage(){
     console.log(this.message);
+    if(!this.message.trim().length)
+      return
+    this.apichat.addMessages(this.message)
+      .then(()=>{
+        this.message = ""
+        console.log('mensaje enviado');
+      })
+      .catch(err=>{
+        console.log('error al enviar ',err);
+      })
   }
 }
