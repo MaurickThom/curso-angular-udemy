@@ -15,7 +15,7 @@ export class ApiMovieDBService {
   }
   getTheMostPopularMovies(){
     const URL = `${this.URL_MOVIE_DB}/discover/movie?sort_by=popularity.desc&api_key=${this.API_KEY}&language=es`
-    // const URL = `${this.URL_MOVIE_DB}/discover/movie?sort_by=popularity.desc&api_key=${this.API_KEY}&language=es&callback=JSONp_CALLBACK`
+    // const URL = `${this.URL_MOVIE_DB}/discover/movie?sort_by=popularity.desc&api_key=${this.API_KEY}&language=es&callback=JSONP_CALLBACK`
     return this.api.jsonp(URL,'callback')
 
   }
