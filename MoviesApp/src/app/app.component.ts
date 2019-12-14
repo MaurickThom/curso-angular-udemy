@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiMovieDBService } from './services/api-movie-db.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'MoviesApp';
+  constructor(
+    public api:ApiMovieDBService
+  ){
+    this.api.getTheMostPopularMovies().subscribe(data=>console.log(data))
+  }
 }
