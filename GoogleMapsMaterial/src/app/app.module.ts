@@ -7,12 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularMaterialModule } from './modules/angular-material/angular-material.module';
 import { HttpClientModule } from '@angular/common/http';
-import { HeaderComponent } from './components/navigation/header/header.component';
+import { MapaComponent } from './components/mapa/mapa.component';
+
+import {AgmCoreModule} from '@agm/core'
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    MapaComponent,
   ],
   imports: [
     BrowserModule,
@@ -21,7 +23,10 @@ import { HeaderComponent } from './components/navigation/header/header.component
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    // AgmCoreModule.forRoot({
+    //   apiKey:'AIzaSyB0WrBOLAZ2PDdoqkGveIOVQU0QvXDHm7U'
+    // })
   ],
   providers: [],
   bootstrap: [AppComponent]
