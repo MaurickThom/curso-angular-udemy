@@ -1,1 +1,7 @@
-<p>movie-card works!</p>
+<img [src]="movie | noImage" class="card-img-top" alt="card">
+<div class="card-body">
+    <h5 class="card-title">{{movie.title}}</h5>
+    <button class="btn btn-outline-primary btn-block" (click)="selectedCard(movie.id)">
+        Ver más ...
+    </button>
+</div>
