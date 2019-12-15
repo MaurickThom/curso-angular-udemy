@@ -1,1 +1,28 @@
-<p>movie-presentation works!</p>
+<div class="container animated fadeIn pt-5" *ngIf="movie">
+  <div class="row">
+    <h1>{{movie.title}}</h1>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-4">
+      <img class="img-fluid rounded" [src]="movie | noImage">
+    </div>
+    <div class="col">
+      <h3>Sinopsis</h3>
+      <br>
+      <p class="text-justify">
+        {{movie.overview}}
+      </p>
+      <h3 *ngIf="movie.tagline">Frase célebre</h3>
+      <p>{{movie.tagline}}</p>
+
+      <div>
+        Popularidad <span class="badge badge-pill badge-primary">{{movie.popularity}}</span>
+        <br>
+        Voto Promedio <span class="badge badge-pill badge-primary">Primary</span>
+      </div>
+      <br>
+      <button (click)="location.back()" class="btn btn-outline-danger">Regresar</button>
+    </div>
+  </div>
+</div>

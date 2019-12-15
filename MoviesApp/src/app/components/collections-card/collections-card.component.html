@@ -8,16 +8,24 @@
     <div class="col-sm-6">
       <div class="row">
         <div class="col-md-12 div-pic-1 puntero"
-
-          [ngStyle]="{'background-image': 'url('+ (movies[0] | noImage:true) +')'}">
+          [ngStyle]="{'background-image': 'url('+ (movies[0] | noImage:true) +')'}"
+          (click)="viewMovie(movies[0])"
+          >
+          <p class="pic-titulo">{{movies[0].original_title}}</p>
         </div>
       </div>
       <div class="row">
         <div class="col-sm-6 div-pic-2 puntero"
-          [ngStyle]="{'background-image': 'url('+ (movies[1] | noImage:true) +')'}">
+          [ngStyle]="{'background-image': 'url('+ (movies[1] | noImage:true) +')'}"
+          (click)="viewMovie(movies[1])"
+          >
+          <p class="pic-titulo">{{movies[1].original_title}}</p>
         </div>
         <div class="col-sm-6 div-pic-2 puntero"
-          [ngStyle]="{'background-image': 'url('+ (movies[2] | noImage:true) +')'}">
+          [ngStyle]="{'background-image': 'url('+ (movies[2] | noImage:true) +')'}"
+          (click)="viewMovie(movies[2])"
+          >
+          <p class="pic-titulo">{{movies[2].original_title}}</p>
         </div>
       </div>
     </div>
@@ -26,11 +34,17 @@
       <div class="row">
 
         <div class="col-sm-6 div-pic-2 puntero"
-          [ngStyle]="{'background-image': 'url('+ (movies[3] | noImage:true) +')'}">
+          [ngStyle]="{'background-image': 'url('+ (movies[3] | noImage:true) +')'}"
+          (click)="viewMovie(movies[3])"
+          >
+          <p class="pic-titulo">{{movies[3].original_title}}</p>
         </div>
 
         <div class="col-sm-6 div-pic-2 puntero"
-          [ngStyle]="{'background-image': 'url('+ (movies[4] | noImage:true) +')'}">
+          [ngStyle]="{'background-image': 'url('+ (movies[4] | noImage:true) +')'}"
+          (click)="viewMovie(movies[4])"
+          >
+          <p class="pic-titulo">{{movies[4].original_title}}</p>
         </div>
 
       </div>
@@ -38,7 +52,10 @@
       <div class="row">
 
         <div class="col-md-12 div-pic-1 puntero"
-          [ngStyle]="{'background-image': 'url('+ (movies[5] | noImage:false) +')'}">
+          [ngStyle]="{'background-image': 'url('+ (movies[5] | noImage:true) +')'}"
+          (click)="viewMovie(movies[5])"
+          >
+          <p class="pic-titulo">{{movies[5].original_title}}</p>
         </div>
 
       </div>
