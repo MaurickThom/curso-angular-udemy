@@ -24,9 +24,9 @@ import {AgmCoreModule} from '@agm/core'
     HttpClientModule,
     ReactiveFormsModule,
     AngularMaterialModule,
-    // AgmCoreModule.forRoot({
-    //   apiKey:'AIzaSyB0WrBOLAZ2PDdoqkGveIOVQU0QvXDHm7U'
-    // })
+    AgmCoreModule.forRoot({
+      apiKey:'AIzaSyB0WrBOLAZ2PDdoqkGveIOVQU0QvXDHm7U'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
