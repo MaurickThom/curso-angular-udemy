@@ -1,0 +1,49 @@
+<div class="container animated  fadeIn"
+  [ngStyle]="{'margin-top': '6em'}"
+>
+  <div class="text-center mb-5">
+    <h2 class="text-center">{{titleGallery}}</h2>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="row">
+        <div class="col-md-12 div-pic-1 puntero"
+
+          [ngStyle]="{'background-image': 'url('+ (movies[0] | noImage:true) +')'}">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 div-pic-2 puntero"
+          [ngStyle]="{'background-image': 'url('+ (movies[1] | noImage:true) +')'}">
+        </div>
+        <div class="col-sm-6 div-pic-2 puntero"
+          [ngStyle]="{'background-image': 'url('+ (movies[2] | noImage:true) +')'}">
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+
+      <div class="row">
+
+        <div class="col-sm-6 div-pic-2 puntero"
+          [ngStyle]="{'background-image': 'url('+ (movies[3] | noImage:true) +')'}">
+        </div>
+
+        <div class="col-sm-6 div-pic-2 puntero"
+          [ngStyle]="{'background-image': 'url('+ (movies[4] | noImage:true) +')'}">
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-12 div-pic-1 puntero"
+          [ngStyle]="{'background-image': 'url('+ (movies[5] | noImage:false) +')'}">
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

@@ -30,7 +30,8 @@ export class ApiMovieDBService {
     const URL = `${this.URL_MOVIE_DB}/movie/${movieID}?api_key=${this.API_KEY}&language=es`
     return this.api.jsonp(URL,'callback')
   }
-  cinemaBillboard(){
+  cinemaBillboard(gte:string,lte:string){
+    // &primary_release_date.gte=${gte}&primary_release_date.lte=${lte}
     const URL = `${this.URL_MOVIE_DB}/movie/now_playing?api_key=${this.API_KEY}&language=es&region=ES`
     return this.api.jsonp(URL,'callback')
   }

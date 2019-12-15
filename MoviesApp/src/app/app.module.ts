@@ -8,7 +8,11 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { MovieCardComponent } from './components/cards/movie-card/movie-card.component';
-import { MoviePresentationComponent } from './components/presentation/movie-presentation/movie-presentation.component'
+import { MoviePresentationComponent } from './components/presentation/movie-presentation/movie-presentation.component';
+import { SearchByTitleComponent } from './components/search-by-title/search-by-title.component';
+import { SearchByTitleAndPageComponent } from './components/search-by-title-and-page/search-by-title-and-page.component';
+import { CollectionsCardComponent } from './components/collections-card/collections-card.component';
+import { NoImagePipe } from './pipes/no-image.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,11 @@ import { MoviePresentationComponent } from './components/presentation/movie-pres
     HomeComponent,
     SearchComponent,
     MovieCardComponent,
-    MoviePresentationComponent
+    MoviePresentationComponent,
+    SearchByTitleComponent,
+    SearchByTitleAndPageComponent,
+    CollectionsCardComponent,
+    NoImagePipe
   ],
   imports: [
     BrowserModule,

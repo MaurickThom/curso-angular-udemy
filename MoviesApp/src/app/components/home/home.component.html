@@ -1,1 +1,23 @@
-<p>home works!</p>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">MovieApp</h1>
+    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+  </div>
+</div>
+<div class="container main-container mt-3" *ngIf="loadingData()">
+  <app-collections-card
+  [movies]="cinemaBillboard"
+  [titleGallery]="titleCinemaBillboard"
+  ></app-collections-card>
+
+  <app-collections-card
+  [movies]="polpularMovies"
+  [titleGallery]="titlePopularMovies"
+  ></app-collections-card>
+
+  <app-collections-card
+  [movies]="popularMoviesForKids"
+  [titleGallery]="titlePopularMoviesForKids"
+  ></app-collections-card>
+
+</div>

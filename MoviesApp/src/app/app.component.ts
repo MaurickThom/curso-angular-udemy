@@ -9,16 +9,13 @@ import { debounceTime, filter, distinctUntilChanged } from 'rxjs/operators';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  title:string ="MovieApp"
+
   // @ViewChild('input',{
   //   static:false
   // }) input: ElementRef;
   // title = 'MoviesApp';
-  // constructor(
-  //   public api:ApiMovieDBService
-  // ){
-  //   this.api.popularMoviesForKids().subscribe(data=>console.log(data))
 
-  // }
   // ngAfterViewInit() {
   //   fromEvent(this.input.nativeElement,'keyup')
   //     .pipe(
