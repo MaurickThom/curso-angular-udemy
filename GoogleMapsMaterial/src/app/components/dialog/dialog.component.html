@@ -1,0 +1,17 @@
+  <h1 mat-dialog-title>Editar </h1>
+<div mat-dialog-content>
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Title" [(ngModel)]="data.mark.title" name="title">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Description" [(ngModel)]="data.mark.description" name="description"></textarea>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <div class="">
+    <button mat-raised-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>Editar</button>
+    <button mat-raised-button color="warn"(click)="onNoClick()" >Cacelar</button>
+  </div>
+</div>

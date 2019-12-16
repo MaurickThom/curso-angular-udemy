@@ -1,22 +1,26 @@
 <mat-card>
-  <mat-card-content>
+  <mat-card-content *ngIf="marks.length">
     <agm-map
+      (mapClick)="addMark( $event )"
       [latitude]="lat"
       [longitude]="lng"
+      [zoom]="15"
     >
       <agm-marker
-      [latitude]="lat"
-      [longitude]="lng"
-      ></agm-marker
-        >
-        <agm-info-window>
-          <strong>Titulo</strong>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur eveniet, adipisci fuga ut, itaque odit quam voluptates dicta nesciunt a cupiditate dolores tempore dignissimos ducimus corrupti at ab aspernatur nemo!</p>
-          <div class="">
-            <button mat-raised-button color="primary">Editar</button>
-            <button mat-raised-button color="warn">Borrar</button>
-          </div>
-        </agm-info-window>
+      *ngFor="let mark of marks;let i = index"
+      [latitude]="mark.lat"
+      [longitude]="mark.lng"
+      >
+      <agm-info-window>
+        <strong>{{mark.title}}</strong>
+        <p>{{mark.description}}</p>
+        <div class="">
+          <button mat-raised-button color="primary" (click)="editMark(mark,i)" >Editar</button>
+          <button mat-raised-button color="warn" (click)="deleteMark(i)" >Borrar</button>
+        </div>
+      </agm-info-window>
+    </agm-marker>
+
     </agm-map>
   </mat-card-content>
 </mat-card>

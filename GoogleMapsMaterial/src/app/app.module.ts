@@ -9,17 +9,20 @@ import { AngularMaterialModule } from './modules/angular-material/angular-materi
 import { HttpClientModule } from '@angular/common/http';
 import { MapaComponent } from './components/mapa/mapa.component';
 
-import {AgmCoreModule} from '@agm/core'
+import {AgmCoreModule} from '@agm/core';
+import { DialogComponent } from './components/dialog/dialog.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     MapaComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
@@ -31,6 +34,7 @@ import {AgmCoreModule} from '@agm/core'
     })
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[DialogComponent]
 })
 export class AppModule { }
