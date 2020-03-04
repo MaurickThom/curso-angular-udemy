@@ -7,6 +7,7 @@ import { CardComponent } from './components/card/card.component';
 import { HeadComponent } from './components/head/head.component';
 import { HomeComponent } from './components/home/home.component';
 import { YoutubeService } from './services/youtube.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { YoutubeService } from './services/youtube.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [YoutubeService],
   bootstrap: [AppComponent]
