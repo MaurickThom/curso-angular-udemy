@@ -15,6 +15,11 @@ export class HomeComponent implements OnInit {
       this.videos = msg.items
     })
   }
+  cargarMas(){
+    this.apiYoutube.getVideos().subscribe((msg:{items:[]})=>{
+      this.videos.push(...msg.items)
+    })
+  }
 
   ngOnInit(): void {
   }
