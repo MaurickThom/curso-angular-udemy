@@ -6,14 +6,21 @@ declare var $:any
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-
+  _video:any = {}
   @Input('youthcard') youthcard:any
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnInit(): void {
-    console.log(this.youthcard);
+    this._video = {...this.youthcard}
   }
-  openModel(){
+  openModal(){
     $('#exampleModal').modal()
+    console.log(this._video);
+  }
+  closeVideo(){
+    this._video = null
+    $('#exampleModal').modal('hide')
   }
 }

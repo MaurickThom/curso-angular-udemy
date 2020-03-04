@@ -8,13 +8,15 @@ import { HeadComponent } from './components/head/head.component';
 import { HomeComponent } from './components/home/home.component';
 import { YoutubeService } from './services/youtube.service';
 import { HttpClientModule } from '@angular/common/http';
+import { YouthPipe } from './pipes/youth.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardComponent,
     HeadComponent,
-    HomeComponent
+    HomeComponent,
+    YouthPipe
   ],
   imports: [
     BrowserModule,
