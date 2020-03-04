@@ -1,4 +1,7 @@
-<div class="container main-container">
+<div class="container main-container" *ngIf="videos.length">
   <h1>Canal de youtube</h1>
   <hr>
+  <div class="card-columns">
+    <app-card *ngFor="let video of videos" [youthcard]="video"></app-card>
+  </div>
 </div>

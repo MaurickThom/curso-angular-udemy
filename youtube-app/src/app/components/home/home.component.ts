@@ -7,11 +7,12 @@ import { YoutubeService } from 'src/app/services/youtube.service';
 })
 export class HomeComponent implements OnInit {
 
+  videos:[] = []
   constructor(
     private apiYoutube:YoutubeService
   ) {
     this.apiYoutube.getVideos().subscribe(msg=>{
-      console.log(msg);
+      this.videos = msg.items
     })
   }
 

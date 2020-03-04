@@ -1,1 +1,28 @@
-<p>card works!</p>
+<div class="card">
+  <img class="card-img-top" [src]="youthcard.snippet.thumbnails.high.url" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{youthcard.snippet.title}}</h5>
+    <!-- <p class="card-text">{{ youthcard.snippet.description }}</p> -->
+    <button type="button" class="btn btn-outline-primary btn-block"
+      (click)="openModel()"
+    >Ver Video</button>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{youthcard.snippet.title}}</h5>
+      </div>
+      <div class="modal-body">
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/HUH6l413VnU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
