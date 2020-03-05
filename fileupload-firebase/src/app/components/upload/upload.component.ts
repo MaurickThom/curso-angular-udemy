@@ -21,6 +21,8 @@ export class UploadComponent implements OnInit {
   loadImages(){
     this._api.loadImagesFirebase(this.files)
   }
-
+  clearImages(){
+    this.files = []
+  }
 
 }

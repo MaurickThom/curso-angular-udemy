@@ -21,6 +21,16 @@ export class UploadPhotosService {
   }
   loadImagesFirebase(images:FileItems[]){
     console.log(images);
+
+    const storegeRef = firebase.storage().ref()
+
+    for(let image of images){
+      image.isUpload = true
+      if( image.progress > 0 )
+        continue
+
+    }
+
   }
   private saveImages(image:{name:string,url:string}){
     this.db.collection(`/${this.DIR_IMAGES}`)
