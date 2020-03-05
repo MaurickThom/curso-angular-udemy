@@ -37,12 +37,10 @@ export class NgDropFilesDirective {
   @HostListener('drop',['$event'])
   public onDrop(event:any){
     const dataTransfer = this._getDataTransfer(event)
-
-    if(!dataTransfer) return
-
-
-
     this.mouseUp.emit(false)
+    if(!dataTransfer) return
+    this._extractFile(dataTransfer.files)
+    this._preventOpenImage(event)
   }
 
   // Validaciones
@@ -58,6 +56,9 @@ export class NgDropFilesDirective {
     return this.files.filter(file=>file.nameFile===nameFile).length ? true : false
   }
 
+
+  // nos ayudara en la compatibilidad de navegadores
+  // ya que interpretan de diferentes maneras el drag an drop
   private _getDataTransfer = (event:any)=>(
     event.dataTransfer ? event.dataTransfer : event.originalEvent.dataTransfer
   )
@@ -67,4 +68,29 @@ export class NgDropFilesDirective {
     ( typeOfFile === ''  || typeOfFile === undefined ) ?
       false : typeOfFile.startsWith('image')
   )
+  // validacion del archivo
+  private _validationFile(file:File):boolean{
+    if( !this._fileAlreadyPublished(file.name) &&
+        this._isImage(file.type) ){
+      return true
+    }
+    return false
+  }
+
+  private _extractFile(fileList:FileList){
+    Object.keys(fileList).map(key=>{
+      const file:File = fileList[key]
+      if(this._validationFile(file)){
+        const newFile  = <FileItems> {
+          file,
+          isUpload:false,
+          nameFile:file.name,
+          progress:0,
+          url:''
+        }
+
+      }
+    })
+
+  }
 }
