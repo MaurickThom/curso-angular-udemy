@@ -13,13 +13,15 @@ import { UploadPhotosService } from './services/upload-photos.service';
 import { environment } from 'src/environments/environment';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { NgDropFilesDirective } from './directives/ng-drop-files.directive';
 @NgModule({
   declarations: [
     AppComponent,
     PhotosComponent,
     UploadComponent,
     CardComponent,
-    NavbarComponent
+    NavbarComponent,
+    NgDropFilesDirective
   ],
   imports: [
     BrowserModule,
