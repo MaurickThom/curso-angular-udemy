@@ -7,7 +7,12 @@ import { PhotosComponent } from './components/photos/photos.component';
 import { UploadComponent } from './components/upload/upload.component';
 import { CardComponent } from './components/card/card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-
+import { AngularFireModule } from '@angular/fire';
+import { HttpClientModule } from '@angular/common/http'
+import { UploadPhotosService } from './services/upload-photos.service';
+import { environment } from 'src/environments/environment';
+import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,9 +23,15 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAnalyticsModule,
+    AngularFirestoreModule
   ],
-  providers: [],
+  providers: [
+    UploadPhotosService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

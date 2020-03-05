@@ -1,7 +1,7 @@
 export interface FileItems {
-  file?: File
-  nameFile?: string
-  url?: string
+  file     ?: File
+  nameFile ?: string
+  url      ?: string
   isUpload ?: boolean
-  progress ?:number
+  progress ?: number
 }
