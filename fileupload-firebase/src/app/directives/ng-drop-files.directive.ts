@@ -31,4 +31,16 @@ export class NgDropFilesDirective {
 
   constructor() { }
 
+  // soltar
+  @HostListener('drop',['$event'])
+  public onDrop(event:any){
+
+    this.mouseUp.emit(false)
+  }
+
+  //
+  private _getDataTransfer = (event:any)=>(
+    event.dataTransfer ? event.dataTransfer : event.originalEvent.dataTransfer
+  )
+
 }
