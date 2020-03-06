@@ -12,8 +12,12 @@
   <div class="col-md-8">
 
     <h4>Cargar archivos</h4>
-    <button class="btn btn-success mr-2" (click)="loadImages()">Cargar a Firebase</button>
-    <button class="btn btn-danger">Limpiar</button>
+    <button class="btn btn-success mr-2"
+      [disabled]="files.length <= 0"
+    (click)="loadImages()">Cargar a Firebase</button>
+    <button class="btn btn-danger"
+    [disabled]="files.length <= 0"
+    >Limpiar</button>
 
     <table [ngStyle]="{'margin-top': '1em'}" class="table">
       <thead class="thead-light">
@@ -32,7 +36,7 @@
             <div class="progress">
               <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar"
                 [ngStyle]="{'width': file.progress + '%'}"
-              >{{ file.nameFile | number: '.2-2' }}%</div>
+              >{{ file.progress | number: '.2-2' }}%</div>
             </div>
           </td>
         </tr>
