@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { LinesComponent } from './components/lines/lines.component';
 import { BarComponent } from './components/bar/bar.component';
 import { DoughnutComponent } from './components/doughnut/doughnut.component';
-import { RadarComponent } from './components/radar/radar.component';
 
 
 const routes: Routes = [
@@ -18,10 +17,6 @@ const routes: Routes = [
   {
     path:"doughnut",
     component:DoughnutComponent
-  },
-  {
-    path:"radar",
-    component:RadarComponent
   },
   {
     path:"",

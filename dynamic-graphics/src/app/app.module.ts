@@ -7,7 +7,6 @@ import { ChartsModule } from 'ng2-charts';
 import { LinesComponent } from './components/lines/lines.component';
 import { BarComponent } from './components/bar/bar.component';
 import { DoughnutComponent } from './components/doughnut/doughnut.component';
-import { RadarComponent } from './components/radar/radar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 @NgModule({
   declarations: [
@@ -15,7 +14,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     LinesComponent,
     BarComponent,
     DoughnutComponent,
-    RadarComponent,
     NavbarComponent
   ],
   imports: [
