@@ -1,1 +1,19 @@
-<p>bar works!</p>
+<div class="flex">
+  <div class="flex-item">
+    <div class="row">
+      <div class="col-md-10">
+        <div style="display: block;">
+        <canvas baseChart
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [legend]="barChartLegend"
+        [chartType]="barChartType">
+      </canvas>
+    </div>
+  </div>
+
+</div>
+<button class="btn btn-outline-primary" (click)="randomize()">Update</button>
+</div>
+</div>
