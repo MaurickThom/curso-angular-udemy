@@ -2,6 +2,7 @@
   <div class="col-md-4">
     <h3>Seleccione archivos</h3>
     <div appNgDropFiles
+        [files]="files"
         (mouseUp)="dropUp = $event"
         [ngClass]="{'file-over': dropUp}" class="well drop-zone">
       <h4>Arraste aquí los archivos</h4>
@@ -23,13 +24,15 @@
         </tr>
       </thead>
 
-      <tbody>
-        <tr>
-          <td>xys</td>
-          <td>12MB</td>
+      <tbody *ngIf="files.length">
+        <tr *ngFor="let file of files">
+          <td scope="row" [ngClass]="{'text-green': file.progress >= 100}">{{ file.nameFile }}</td>
+          <td>{{ file.file.size / 1024 | number : '.2-2' }} KB</td>
           <td>
             <div class="progress">
-              <div class="progress-bar" role="progressbar" style="width: 25%"></div>
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar"
+                [ngStyle]="{'width': file.progress + '%'}"
+              >{{ file.nameFile | number: '.2-2' }}%</div>
             </div>
           </td>
         </tr>

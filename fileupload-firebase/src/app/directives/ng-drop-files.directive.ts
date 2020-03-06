@@ -23,12 +23,14 @@ export class NgDropFilesDirective {
   @HostListener('dragover',['$event'])
   public onDragEnter(event:any){
     this.mouseUp.emit(true)
+    this._preventOpenImage(event)
   }
 
   // cuando ya no este arrastrando
   @HostListener('dragleave',['$event'])
   public onDragLeave(event:any){
     this.mouseUp.emit(false)
+    this._preventOpenImage(event)
   }
 
   constructor() { }
@@ -39,8 +41,10 @@ export class NgDropFilesDirective {
     const dataTransfer = this._getDataTransfer(event)
     this.mouseUp.emit(false)
     if(!dataTransfer) return
+    // console.log("NgDropFilesDirective -> onDrop -> dataTransfer", dataTransfer)
     this._extractFile(dataTransfer.files)
     this._preventOpenImage(event)
+
   }
 
   // Validaciones
@@ -88,6 +92,8 @@ export class NgDropFilesDirective {
           progress:0,
           url:''
         }
+        this.files.push(newFile)
+        console.log("NgDropFilesDirective -> _extractFile -> this.files", this.files)
 
       }
     })
