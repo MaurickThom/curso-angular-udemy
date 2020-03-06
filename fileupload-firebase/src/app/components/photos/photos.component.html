@@ -1,1 +1,5 @@
-<p>photos works!</p>
+<div class="card-columns">
+  <app-card *ngFor="let image of images | async" [image]="image">
+
+  </app-card>
+</div>
