@@ -1,13 +1,36 @@
 <h1>virtual scroll</h1>
 <hr>
 
+<div class="row">
+  <div class="col">
+    <button class="btn btn-outline-primary"
+    *ngIf="inicio"
+    (click)="irFinal()"
+    >Ir al Final</button>
+  </div>
+  <div class="col">
+    <button class="btn btn-outline-primary"
+    *ngIf="!inicio"
+    (click)="irInicio()"
+    >Ir al Inicio</button>
+  </div>
+  <div class="col">
+    <button class="btn btn-outline-primary"
+    *ngIf="!inicio"
+    (click)="irAlMedio()"
+    >Ir al medio</button>
+  </div>
+</div>
+
+<hr>
+
 <cdk-virtual-scroll-viewport
   itemSize="50"
-  class="list-container"
+  class="list-container list-group"
 >
-<div class="" *cdkVirtualFor="let person of persons;let i = index;let _count = count" [ngStyle]="{'height': '50px'}">
-  Item {{ person }},  {{ i }} , {{_count}}
-</div>
+  <div class="list-group-item" *cdkVirtualFor="let person of persons;let i = index;let _count = count" [ngStyle]="{'height': '50px'}">
+    Item {{ person }},  {{ i }} , {{_count}}
+  </div>
 
 
 </cdk-virtual-scroll-viewport>
