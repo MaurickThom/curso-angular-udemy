@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CountriesService } from 'src/app/services/countries.service';
+import { CdkDragDrop,moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-countries',
@@ -20,10 +21,11 @@ export class CountriesComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.countries);
   }
-  drop($event){
-    console.log($event);
+  drop($event:CdkDragDrop<any>){
     let pais = {...this.countries[$event.previousIndex]}
     this.countries.splice($event.previousIndex,1)
     this.countries.splice($event.currentIndex,0,pais)
+
+    // moveItemInArray(this.countries,$event.previousIndex,$event.currentIndex)
   }
 }
