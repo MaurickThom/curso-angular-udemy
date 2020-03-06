@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { VirtualScrollComponent } from './components/virtual-scroll/virtual-scroll.component';
 import { DragAndDropComponent } from './components/drag-and-drop/drag-and-drop.component';
+import { CountriesComponent } from './components/countries/countries.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,10 @@ const routes: Routes = [
     component:DragAndDropComponent
   },
   {
+    path:"countries",
+    component:CountriesComponent
+  },
+  {
     path:"",
     pathMatch:"full",
     redirectTo:"virtual-sroll"
@@ -22,7 +27,7 @@ const routes: Routes = [
     path:"**",
     pathMatch:"full",
     redirectTo:"virtual-sroll"
-  }
+  },
 ];
 
 @NgModule({
