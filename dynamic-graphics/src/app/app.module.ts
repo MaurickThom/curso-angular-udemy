@@ -8,13 +8,15 @@ import { LinesComponent } from './components/lines/lines.component';
 import { BarComponent } from './components/bar/bar.component';
 import { DoughnutComponent } from './components/doughnut/doughnut.component';
 import { RadarComponent } from './components/radar/radar.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
     LinesComponent,
     BarComponent,
     DoughnutComponent,
-    RadarComponent
+    RadarComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
