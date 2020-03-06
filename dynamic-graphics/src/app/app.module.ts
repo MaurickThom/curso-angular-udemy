@@ -3,14 +3,23 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { ChartsModule } from 'ng2-charts';
+import { LinesComponent } from './components/lines/lines.component';
+import { BarComponent } from './components/bar/bar.component';
+import { DoughnutComponent } from './components/doughnut/doughnut.component';
+import { RadarComponent } from './components/radar/radar.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LinesComponent,
+    BarComponent,
+    DoughnutComponent,
+    RadarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
