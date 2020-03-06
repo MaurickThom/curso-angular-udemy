@@ -7,6 +7,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { VirtualScrollComponent } from './components/virtual-scroll/virtual-scroll.component';
 import { DragAndDropComponent } from './components/drag-and-drop/drag-and-drop.component';
 
+import {ScrollingModule} from '@angular/cdk/scrolling'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +18,8 @@ import { DragAndDropComponent } from './components/drag-and-drop/drag-and-drop.c
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ScrollingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

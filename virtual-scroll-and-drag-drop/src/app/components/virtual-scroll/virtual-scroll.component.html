@@ -1,1 +1,13 @@
-<p>virtual-scroll works!</p>
+<h1>virtual scroll</h1>
+<hr>
+
+<cdk-virtual-scroll-viewport
+  itemSize="50"
+  class="list-container"
+>
+<div class="" *cdkVirtualFor="let person of persons;let i = index;let _count = count" [ngStyle]="{'height': '50px'}">
+  Item {{ person }},  {{ i }} , {{_count}}
+</div>
+
+
+</cdk-virtual-scroll-viewport>
