@@ -17,6 +17,7 @@
     (click)="loadImages()">Cargar a Firebase</button>
     <button class="btn btn-danger"
     [disabled]="files.length <= 0"
+    (click)="clearImages()"
     >Limpiar</button>
 
     <table [ngStyle]="{'margin-top': '1em'}" class="table">
